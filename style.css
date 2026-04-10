@@ -1,0 +1,306 @@
+/* --- CLEAN CLASSIC BLUE THEME --- */
+:root {
+    --primary-blue: #2980b9;      /* Professional Blue */
+    --dark-navy: #03315f;         /* Text & Navbar */
+    --light-bg: #f5f6fa;          /* Subtle light background */
+    --pure-white: #ffffff;
+    --border-color: #dcdde1;
+    --text-main: #2f3640;
+    --text-muted: #2d3030;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    background: var(--pure-white);
+    padding: 1rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-navy);
+}
+
+.logo .accent-text {
+    color: var(--primary-blue);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-blue);
+}
+
+/* --- HERO SECTION --- */
+.hero-header {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--pure-white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-header h1 {
+    font-size: 2.8rem;
+    color: var(--dark-navy);
+    margin-bottom: 10px;
+}
+
+.hero-header h1 span {
+    color: var(--primary-blue);
+}
+
+.hero-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.status-bar {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    background: #ebf5fb;
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* --- CATEGORY GRID --- */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* --- CATEGORY CARD --- */
+.category-card {
+    background: var(--pure-white);
+    padding: 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.category-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    color: var(--dark-navy);
+}
+
+.category-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* --- PRACTICE PAGE SIDEBAR --- */
+.practice-container {
+    display: flex;
+    height: calc(100vh - 65px);
+}
+
+.sidebar {
+    width: 300px;
+    background: #f8f9fa;
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+}
+
+#problemList li {
+    list-style: none;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#problemList li:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* --- CODE BOX --- */
+.code-box {
+    background: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-blue);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#queryDisplay {
+    color: #2c3e50;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* --- PRACTICE PAGE (QUERIES.HTML) CLEAN DESIGN --- */
+
+.practice-container {
+    display: flex;
+    height: calc(100vh - 65px); /* Navbar adjust */
+    background: #ffffff;
+}
+
+/* Sidebar: Light & Simple */
+.sidebar {
+    width: 320px;
+    background: #fcfcfc;
+    border-right: 1px solid #eeeeee;
+    padding: 25px 15px;
+    overflow-y: auto;
+}
+
+#catTitle {
+    font-size: 1rem;
+    color: var(--dark-navy);
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid var(--primary-blue);
+    text-transform: uppercase;
+}
+
+#problemList {
+    list-style: none;
+}
+
+#problemList li {
+    padding: 12px 15px;
+    margin-bottom: 6px;
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: var(--text-main);
+}
+
+#problemList li:hover {
+    border-color: var(--primary-blue);
+    background: #f0f7ff; /* Very light blue on hover */
+    color: var(--primary-blue);
+}
+
+/* Main Content Area */
+.main-display {
+    flex: 1;
+    padding: 50px 7%;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+#welcomeMsg {
+    text-align: center;
+    margin-top: 15%;
+    color: var(--text-muted);
+}
+
+#welcomeMsg h2 {
+    color: var(--dark-navy);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Question Section */
+.display-section {
+    margin-bottom: 35px;
+}
+
+.display-section label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    background: #e8f4fd;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.q-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark-navy);
+    line-height: 1.5;
+}
+
+/* Code & Output Boxes: Simple & Neat */
+.code-box {
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+#queryDisplay {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #24292e; /* Classic Github-style text color */
+    line-height: 1.6;
+    margin: 0;
+}
+
+.output-box {
+    background: #ffffff;
+    border: 1px dashed #ccd1d9;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.9rem;
+    color: #444;
+    white-space: pre-wrap;
+}
+
+/* Responsive sidebar */
+@media (max-width: 900px) {
+    .sidebar { width: 250px; }
+    .q-text { font-size: 1.2rem; }
+}

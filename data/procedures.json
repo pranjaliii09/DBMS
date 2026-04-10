@@ -1,0 +1,148 @@
+[
+  {
+    "question": "1. Write a stored procedure to display 'Hello Oracle' using DBMS_OUTPUT.",
+    "query": "CREATE OR REPLACE PROCEDURE hello_oracle AS\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Hello Oracle');\nEND;\n/\nEXEC hello_oracle;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Hello Oracle" }
+    ]
+  },
+  {
+    "question": "2. Procedure that takes empno as an IN parameter and displays name and salary.",
+    "query": "CREATE OR REPLACE PROCEDURE get_emp_details(p_no IN NUMBER) AS\n  v_name EMP.ENAME%TYPE; \n  v_sal EMP.SAL%TYPE;\nBEGIN\n  SELECT ENAME, SAL INTO v_name, v_sal FROM EMP WHERE EMPNO = p_no;\n  DBMS_OUTPUT.PUT_LINE('Name: ' || v_name || ' | Salary: ' || v_sal);\nEND;\n/\nEXEC get_emp_details(7839);",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Name: KING | Salary: 5000" }
+    ]
+  },
+  {
+    "question": "3. Procedure to display all employees working in a specific department.",
+    "query": "CREATE OR REPLACE PROCEDURE dept_employees(p_dept IN NUMBER) AS\nBEGIN\n  FOR r IN (SELECT ENAME FROM EMP WHERE DEPTNO = p_dept) LOOP\n    DBMS_OUTPUT.PUT_LINE(r.ename);\n  END LOOP;\nEND;\n/\nEXEC dept_employees(10);",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "CLARK" },
+      { "SCRIPT_OUTPUT": "KING" },
+      { "SCRIPT_OUTPUT": "MILLER" }
+    ]
+  },
+  {
+    "question": "4. Procedure that takes salary as input and displays earners more than that.",
+    "query": "CREATE OR REPLACE PROCEDURE earners_more_than(p_sal IN NUMBER) AS\nBEGIN\n  FOR r IN (SELECT ENAME, SAL FROM EMP WHERE SAL > p_sal) LOOP\n    DBMS_OUTPUT.PUT_LINE(r.ename || ' (' || r.sal || ')');\n  END LOOP;\nEND;\n/\nEXEC earners_more_than(3000);",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "KING (5000)" }
+    ]
+  },
+  {
+    "question": "5. Procedure with an OUT parameter to return salary of a specific employee.",
+    "query": "CREATE OR REPLACE PROCEDURE get_sal_out(p_no IN NUMBER, p_sal OUT NUMBER) AS\nBEGIN\n  SELECT SAL INTO p_sal FROM EMP WHERE EMPNO = p_no;\nEND;\n/\nDECLARE\n  v_s NUMBER;\nBEGIN\n  get_sal_out(7788, v_s);\n  DBMS_OUTPUT.PUT_LINE('Salary: ' || v_s);\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Salary: 3000" }
+    ]
+  },
+  {
+    "question": "6. Procedure with IN OUT parameter (Accepts salary, increases by 10%).",
+    "query": "CREATE OR REPLACE PROCEDURE hike_sal(p_sal IN OUT NUMBER) AS\nBEGIN\n  p_sal := p_sal * 1.10;\nEND;\n/\nDECLARE\n  v_val NUMBER := 1000;\nBEGIN\n  hike_sal(v_val);\n  DBMS_OUTPUT.PUT_LINE('Updated: ' || v_val);\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Updated: 1100" }
+    ]
+  },
+  {
+    "question": "7. Write a stored procedure to insert a new record into the EMP table.",
+    "query": "CREATE OR REPLACE PROCEDURE insert_emp(p_id NUMBER, p_name VARCHAR2) AS\nBEGIN\n  INSERT INTO EMP (EMPNO, ENAME) VALUES (p_id, p_name);\n  DBMS_OUTPUT.PUT_LINE('Employee Added.');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Employee Added." }
+    ]
+  },
+  {
+    "question": "8. Write a stored procedure to update an employee salary based on empno.",
+    "query": "CREATE OR REPLACE PROCEDURE update_emp_sal(p_id NUMBER, p_sal NUMBER) AS\nBEGIN\n  UPDATE EMP SET SAL = p_sal WHERE EMPNO = p_id;\n  DBMS_OUTPUT.PUT_LINE('Salary Updated.');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Salary Updated." }
+    ]
+  },
+  {
+    "question": "9. Write a stored procedure to delete an employee record safely.",
+    "query": "CREATE OR REPLACE PROCEDURE delete_emp(p_id NUMBER) AS\nBEGIN\n  DELETE FROM EMP WHERE EMPNO = p_id;\n  DBMS_OUTPUT.PUT_LINE('Employee Deleted.');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Employee Deleted." }
+    ]
+  },
+  {
+    "question": "10. Increase salary of all employees by a given percentage.",
+    "query": "CREATE OR REPLACE PROCEDURE global_hike(p_pct NUMBER) AS\nBEGIN\n  UPDATE EMP SET SAL = SAL + (SAL * p_pct / 100);\n  DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' rows updated');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "14 rows updated" }
+    ]
+  },
+  {
+    "question": "11. Transfer an employee from one department to another.",
+    "query": "CREATE OR REPLACE PROCEDURE transfer_emp(p_id NUMBER, p_new_dept NUMBER) AS\nBEGIN\n  UPDATE EMP SET DEPTNO = p_new_dept WHERE EMPNO = p_id;\n  DBMS_OUTPUT.PUT_LINE('Transfer Successful.');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Transfer Successful." }
+    ]
+  },
+  {
+    "question": "12. Procedure to display top 5 highest-paid employees using a cursor.",
+    "query": "CREATE OR REPLACE PROCEDURE top_5_emps AS\n  CURSOR c_top IS SELECT ENAME, SAL FROM EMP ORDER BY SAL DESC;\n  v_c NUMBER := 0;\nBEGIN\n  FOR r IN c_top LOOP\n    DBMS_OUTPUT.PUT_LINE(r.ename || ': ' || r.sal);\n    v_c := v_c + 1;\n    EXIT WHEN v_c = 5;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "KING: 5000" },
+      { "SCRIPT_OUTPUT": "SCOTT: 3000" },
+      { "SCRIPT_OUTPUT": "FORD: 3000" },
+      { "SCRIPT_OUTPUT": "JONES: 2975" },
+      { "SCRIPT_OUTPUT": "BLAKE: 2850" }
+    ]
+  },
+  {
+    "question": "13. Implement transaction logic using COMMIT and ROLLBACK.",
+    "query": "CREATE OR REPLACE PROCEDURE transaction_test AS\nBEGIN\n  UPDATE EMP SET SAL = SAL + 10;\n  COMMIT;\n  DBMS_OUTPUT.PUT_LINE('Transaction Managed.');\nEXCEPTION\n  WHEN OTHERS THEN \n    ROLLBACK;\n    DBMS_OUTPUT.PUT_LINE('Transaction Rolled Back.');\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Transaction Managed." }
+    ]
+  },
+  {
+    "question": "14. Function to return the square of a given number.",
+    "query": "CREATE OR REPLACE FUNCTION get_square(n NUMBER) RETURN NUMBER AS\nBEGIN\n  RETURN n * n;\nEND;\n/\nSELECT get_square(5) FROM DUAL;",
+    "output_table": [
+      { "RESULT": 25 }
+    ]
+  },
+  {
+    "question": "15. Function to return employee salary when empno is provided.",
+    "query": "CREATE OR REPLACE FUNCTION find_sal(p_no NUMBER) RETURN NUMBER AS\n  v_s NUMBER;\nBEGIN\n  SELECT SAL INTO v_s FROM EMP WHERE EMPNO = p_no;\n  RETURN v_s;\nEND;",
+    "output_table": [
+      { "RESULT": 5000 }
+    ]
+  },
+  {
+    "question": "16. Function to return total count of employees.",
+    "query": "CREATE OR REPLACE FUNCTION count_all_emps RETURN NUMBER AS\n  v_c NUMBER;\nBEGIN\n  SELECT COUNT(*) INTO v_c FROM EMP;\n  RETURN v_c;\nEND;",
+    "output_table": [
+      { "RESULT": 14 }
+    ]
+  },
+  {
+    "question": "17. Function to return maximum salary in company.",
+    "query": "CREATE OR REPLACE FUNCTION get_max_sal RETURN NUMBER AS\n  v_m NUMBER;\nBEGIN\n  SELECT MAX(SAL) INTO v_m FROM EMP;\n  RETURN v_m;\nEND;",
+    "output_table": [
+      { "RESULT": 5000 }
+    ]
+  },
+  {
+    "question": "18. Function to return Department Name (dname) by deptno.",
+    "query": "CREATE OR REPLACE FUNCTION get_dname(p_dno NUMBER) RETURN VARCHAR2 AS\n  v_n VARCHAR2(20);\nBEGIN\n  SELECT DNAME INTO v_n FROM DEPT WHERE DEPTNO = p_dno;\n  RETURN v_n;\nEND;",
+    "output_table": [
+      { "RESULT": "ACCOUNTING" }
+    ]
+  },
+  {
+    "question": "19. Function to calculate 15% bonus based on salary.",
+    "query": "CREATE OR REPLACE FUNCTION calc_bonus(p_sal NUMBER) RETURN NUMBER AS\nBEGIN\n  RETURN p_sal * 0.15;\nEND;",
+    "output_table": [
+      { "RESULT": 150 }
+    ]
+  },
+  {
+    "question": "20. Function to return performance grade (A, B, C).",
+    "query": "CREATE OR REPLACE FUNCTION check_grade(p_sal NUMBER) RETURN CHAR AS\nBEGIN\n  IF p_sal > 4000 THEN RETURN 'A';\n  ELSIF p_sal > 2000 THEN RETURN 'B';\n  ELSE RETURN 'C'; END IF;\nEND;",
+    "output_table": [
+      { "RESULT": "A" }
+    ]
+  }
+]

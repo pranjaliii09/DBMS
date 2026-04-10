@@ -1,0 +1,92 @@
+[
+  { "group": "Inner Joins", "question": "1. Display employee name and their corresponding department name.", "query": "SELECT E.ENAME, D.DNAME \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO;", "output_table": [
+      { "ENAME": "SMITH", "DNAME": "RESEARCH" }, { "ENAME": "ALLEN", "DNAME": "SALES" }, { "ENAME": "WARD", "DNAME": "SALES" },
+      { "ENAME": "JONES", "DNAME": "RESEARCH" }, { "ENAME": "MARTIN", "DNAME": "SALES" }, { "ENAME": "BLAKE", "DNAME": "SALES" },
+      { "ENAME": "CLARK", "DNAME": "ACCOUNTING" }, { "ENAME": "SCOTT", "DNAME": "RESEARCH" }, { "ENAME": "KING", "DNAME": "ACCOUNTING" },
+      { "ENAME": "TURNER", "DNAME": "SALES" }, { "ENAME": "ADAMS", "DNAME": "RESEARCH" }, { "ENAME": "JAMES", "DNAME": "SALES" },
+      { "ENAME": "FORD", "DNAME": "RESEARCH" }, { "ENAME": "MILLER", "DNAME": "ACCOUNTING" }
+  ]},
+  { "group": "Inner Joins", "question": "2. Display employee name, job, and department location for all 'CLERKs'.", "query": "SELECT E.ENAME, E.JOB, D.LOC \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE E.JOB = 'CLERK';", "output_table": [
+      { "ENAME": "SMITH", "JOB": "CLERK", "LOC": "DALLAS" },
+      { "ENAME": "ADAMS", "JOB": "CLERK", "LOC": "DALLAS" },
+      { "ENAME": "JAMES", "JOB": "CLERK", "LOC": "CHICAGO" },
+      { "ENAME": "MILLER", "JOB": "CLERK", "LOC": "NEW YORK" }
+  ]},
+  { "group": "Inner Joins", "question": "3. Display employee name and department name for employees whose salary > 2000.", "query": "SELECT E.ENAME, D.DNAME \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE E.SAL > 2000;", "output_table": [
+      { "ENAME": "KING", "DNAME": "ACCOUNTING" }, { "ENAME": "FORD", "DNAME": "RESEARCH" },
+      { "ENAME": "SCOTT", "DNAME": "RESEARCH" }, { "ENAME": "JONES", "DNAME": "RESEARCH" },
+      { "ENAME": "BLAKE", "DNAME": "SALES" }, { "ENAME": "CLARK", "DNAME": "ACCOUNTING" }
+  ]},
+  { "group": "Inner Joins", "question": "4. Display employee name and department name for all employees working in 'NEW YORK'.", "query": "SELECT E.ENAME, D.DNAME \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE D.LOC = 'NEW YORK';", "output_table": [
+      { "ENAME": "KING", "DNAME": "ACCOUNTING" },
+      { "ENAME": "CLARK", "DNAME": "ACCOUNTING" },
+      { "ENAME": "MILLER", "DNAME": "ACCOUNTING" }
+  ]},
+  { "group": "Inner Joins", "question": "5. Display all employees hired after 1981 along with their department name.", "query": "SELECT E.ENAME, E.HIREDATE, D.DNAME \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE E.HIREDATE > '31-DEC-1981';", "output_table": [
+      { "ENAME": "MILLER", "HIREDATE": "23-JAN-82", "DNAME": "ACCOUNTING" },
+      { "ENAME": "SCOTT", "HIREDATE": "19-APR-87", "DNAME": "RESEARCH" },
+      { "ENAME": "ADAMS", "HIREDATE": "23-MAY-87", "DNAME": "RESEARCH" }
+  ]},
+  { "group": "Inner Joins", "question": "6. Display employees with salary between 1500 and 3000 with department details.", "query": "SELECT E.ENAME, E.SAL, D.DNAME, D.LOC \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE E.SAL BETWEEN 1500 AND 3000;", "output_table": [
+      { "ENAME": "ALLEN", "SAL": 1600, "DNAME": "SALES", "LOC": "CHICAGO" },
+      { "ENAME": "JONES", "SAL": 2975, "DNAME": "RESEARCH", "LOC": "DALLAS" },
+      { "ENAME": "BLAKE", "SAL": 2850, "DNAME": "SALES", "LOC": "CHICAGO" },
+      { "ENAME": "CLARK", "SAL": 2450, "DNAME": "ACCOUNTING", "LOC": "NEW YORK" },
+      { "ENAME": "SCOTT", "SAL": 3000, "DNAME": "RESEARCH", "LOC": "DALLAS" },
+      { "ENAME": "FORD", "SAL": 3000, "DNAME": "RESEARCH", "LOC": "DALLAS" },
+      { "ENAME": "TURNER", "SAL": 1500, "DNAME": "SALES", "LOC": "CHICAGO" }
+  ]},
+  { "group": "Inner Joins", "question": "7. Display employee name and department location for 'ACCOUNTING' department.", "query": "SELECT E.ENAME, D.LOC \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nWHERE D.DNAME = 'ACCOUNTING';", "output_table": [
+      { "ENAME": "CLARK", "LOC": "NEW YORK" },
+      { "ENAME": "KING", "LOC": "NEW YORK" },
+      { "ENAME": "MILLER", "LOC": "NEW YORK" }
+  ]},
+  { "group": "Outer Joins", "question": "8. Display all employees and their department names (Left Join).", "query": "SELECT E.ENAME, D.DNAME \nFROM EMP E \nLEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO;", "output_table": [
+      { "ENAME": "SMITH", "DNAME": "RESEARCH" }, { "ENAME": "KING", "DNAME": "ACCOUNTING" },
+      { "ENAME": "ALLEN", "DNAME": "SALES" }, { "ENAME": "JAMES", "DNAME": "SALES" }
+  ]},
+  { "group": "Outer Joins", "question": "9. Display all departments and employees (Right Join).", "query": "SELECT D.DNAME, E.ENAME \nFROM EMP E \nRIGHT JOIN DEPT D ON E.DEPTNO = D.DEPTNO;", "output_table": [
+      { "DNAME": "ACCOUNTING", "ENAME": "KING" }, { "DNAME": "RESEARCH", "ENAME": "SMITH" },
+      { "DNAME": "SALES", "ENAME": "ALLEN" }, { "DNAME": "OPERATIONS", "ENAME": null }
+  ]},
+  { "group": "Outer Joins", "question": "10. Display departments that currently have no employees.", "query": "SELECT D.DNAME \nFROM DEPT D \nLEFT JOIN EMP E ON D.DEPTNO = E.DEPTNO \nGROUP BY D.DNAME \nHAVING COUNT(E.EMPNO) = 0;", "output_table": [{ "DNAME": "OPERATIONS" }] },
+  { "group": "Outer Joins", "question": "11. Display employees who are not assigned to any department.", "query": "SELECT ENAME \nFROM EMP \nWHERE DEPTNO IS NULL;", "output_table": [] },
+  { "group": "Self Joins", "question": "12. Display employee name and their manager’s name.", "query": "SELECT E.ENAME AS Employee, M.ENAME AS Manager \nFROM EMP E \nJOIN EMP M ON E.MGR = M.EMPNO;", "output_table": [
+      { "Employee": "SMITH", "Manager": "FORD" }, { "Employee": "ALLEN", "Manager": "BLAKE" },
+      { "Employee": "WARD", "Manager": "BLAKE" }, { "Employee": "JONES", "Manager": "KING" },
+      { "Employee": "MARTIN", "Manager": "BLAKE" }, { "Employee": "BLAKE", "Manager": "KING" },
+      { "Employee": "CLARK", "Manager": "KING" }, { "Employee": "SCOTT", "Manager": "JONES" },
+      { "Employee": "TURNER", "Manager": "BLAKE" }, { "Employee": "ADAMS", "Manager": "SCOTT" },
+      { "Employee": "JAMES", "Manager": "BLAKE" }, { "Employee": "FORD", "Manager": "JONES" },
+      { "Employee": "MILLER", "Manager": "CLARK" }
+  ]},
+  { "group": "Self Joins", "question": "13. Display employees who earn more than their own manager.", "query": "SELECT E.ENAME AS Employee, E.SAL, M.ENAME AS Manager, M.SAL AS Mgr_Sal \nFROM EMP E \nJOIN EMP M ON E.MGR = M.EMPNO \nWHERE E.SAL > M.SAL;", "output_table": [
+      { "Employee": "SCOTT", "SAL": 3000, "Manager": "JONES", "Mgr_Sal": 2975 },
+      { "Employee": "FORD", "SAL": 3000, "Manager": "JONES", "Mgr_Sal": 2975 }
+  ]},
+  { "group": "Self Joins", "question": "14. Display employees whose manager works in department 10.", "query": "SELECT E.ENAME \nFROM EMP E \nJOIN EMP M ON E.MGR = M.EMPNO \nWHERE M.DEPTNO = 10;", "output_table": [{ "ENAME": "BLAKE" }, { "ENAME": "CLARK" }, { "ENAME": "JONES" }] },
+  { "group": "Self Joins", "question": "15. Display employees whose manager works in a different department.", "query": "SELECT E.ENAME \nFROM EMP E \nJOIN EMP M ON E.MGR = M.EMPNO \nWHERE E.DEPTNO != M.DEPTNO;", "output_table": [
+      { "ENAME": "SMITH" }, { "ENAME": "ALLEN" }, { "ENAME": "WARD" }, 
+      { "ENAME": "MARTIN" }, { "ENAME": "TURNER" }, { "ENAME": "JAMES" }
+  ]},
+  { "group": "Self Joins", "question": "16. Display employees who work under the same manager as 'SCOTT'.", "query": "SELECT ENAME \nFROM EMP \nWHERE MGR = (SELECT MGR FROM EMP WHERE ENAME = 'SCOTT') \nAND ENAME != 'SCOTT';", "output_table": [{ "ENAME": "FORD" }] },
+  { "group": "Self Joins", "question": "17. Display employee name and the salary of their manager.", "query": "SELECT E.ENAME, M.SAL AS Manager_Salary \nFROM EMP E \nJOIN EMP M ON E.MGR = M.EMPNO;", "output_table": [
+      { "ENAME": "SMITH", "Manager_Salary": 3000 },
+      { "ENAME": "ALLEN", "Manager_Salary": 2850 }
+  ]},
+  { "group": "Joins with Aggregations", "question": "18. Display department name and average salary.", "query": "SELECT D.DNAME, ROUND(AVG(E.SAL), 2) AS Avg_Sal \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nGROUP BY D.DNAME;", "output_table": [
+      { "DNAME": "ACCOUNTING", "Avg_Sal": 2916.67 },
+      { "DNAME": "RESEARCH", "Avg_Sal": 2175.00 },
+      { "DNAME": "SALES", "Avg_Sal": 1566.67 }
+  ]},
+  { "group": "Joins with Aggregations", "question": "19. Display department name and total salary paid.", "query": "SELECT D.DNAME, SUM(E.SAL) AS Total_Sal \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nGROUP BY D.DNAME;", "output_table": [
+      { "DNAME": "ACCOUNTING", "Total_Sal": 8750 },
+      { "DNAME": "RESEARCH", "Total_Sal": 10875 },
+      { "DNAME": "SALES", "Total_Sal": 9400 }
+  ]},
+  { "group": "Joins with Aggregations", "question": "20. Display department name and total number of employees.", "query": "SELECT D.DNAME, COUNT(E.EMPNO) AS Headcount \nFROM EMP E \nJOIN DEPT D ON E.DEPTNO = D.DEPTNO \nGROUP BY D.DNAME;", "output_table": [
+      { "DNAME": "ACCOUNTING", "Headcount": 3 },
+      { "DNAME": "RESEARCH", "Headcount": 5 },
+      { "DNAME": "SALES", "Headcount": 6 }
+  ]}
+]

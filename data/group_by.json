@@ -1,0 +1,385 @@
+[
+  {
+    "group": "Aggregate Functions ",
+    "question": "1. Total number of employees in the company.",
+    "query": "SELECT COUNT(*) AS TOTAL_EMPS FROM EMP;",
+    "output_table": [
+      { "TOTAL_EMPS": 14 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "2. Total salary of all employees.",
+    "query": "SELECT SUM(SAL) AS TOTAL_SALARY FROM EMP;",
+    "output_table": [
+      { "TOTAL_SALARY": 29025 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "3. Average salary of all employees.",
+    "query": "SELECT ROUND(AVG(SAL), 2) AS AVG_SALARY FROM EMP;",
+    "output_table": [
+      { "AVG_SALARY": 2073.21 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "4. Highest salary in the company.",
+    "query": "SELECT MAX(SAL) AS MAX_SAL FROM EMP;",
+    "output_table": [
+      { "MAX_SAL": 5000 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "5. Lowest salary in the company.",
+    "query": "SELECT MIN(SAL) AS MIN_SAL FROM EMP;",
+    "output_table": [
+      { "MIN_SAL": 800 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "6. Total number of distinct departments in EMP table.",
+    "query": "SELECT COUNT(DISTINCT DEPTNO) AS DEPT_COUNT FROM EMP;",
+    "output_table": [
+      { "DEPT_COUNT": 3 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "7. Number of employees who are managers.",
+    "query": "SELECT COUNT(DISTINCT MGR) AS MANAGER_COUNT FROM EMP;",
+    "output_table": [
+      { "MANAGER_COUNT": 6 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "8. Total commission paid to employees.",
+    "query": "SELECT SUM(COMM) AS TOTAL_COMM FROM EMP;",
+    "output_table": [
+      { "TOTAL_COMM": 2200 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "9. Average commission (ignoring NULL values).",
+    "query": "SELECT AVG(COMM) AS AVG_COMM FROM EMP;",
+    "output_table": [
+      { "AVG_COMM": 550 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "10. Number of employees who receive a commission.",
+    "query": "SELECT COUNT(COMM) AS EMP_WITH_COMM FROM EMP;",
+    "output_table": [
+      { "EMP_WITH_COMM": 4 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "11. Number of employees who do not get a commission.",
+    "query": "SELECT COUNT(*) AS NO_COMM_COUNT FROM EMP WHERE COMM IS NULL;",
+    "output_table": [
+      { "NO_COMM_COUNT": 10 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "12. Count of distinct job titles in the company.",
+    "query": "SELECT COUNT(DISTINCT JOB) AS UNIQUE_JOBS FROM EMP;",
+    "output_table": [
+      { "UNIQUE_JOBS": 5 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "13. Highest commission earned.",
+    "query": "SELECT MAX(COMM) AS MAX_COMM FROM EMP;",
+    "output_table": [
+      { "MAX_COMM": 1400 }
+    ]
+  },
+  {
+    "group": "Aggregate Functions ",
+    "question": "14. Difference between the maximum and minimum salary.",
+    "query": "SELECT MAX(SAL) - MIN(SAL) AS SALARY_DIFF FROM EMP;",
+    "output_table": [
+      { "SALARY_DIFF": 4200 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "15. Department-wise total salary.",
+    "query": "SELECT DEPTNO, SUM(SAL) AS TOTAL_SAL FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "TOTAL_SAL": 8750 },
+      { "DEPTNO": 20, "TOTAL_SAL": 10875 },
+      { "DEPTNO": 30, "TOTAL_SAL": 9400 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "16. Department-wise average salary.",
+    "query": "SELECT DEPTNO, ROUND(AVG(SAL), 2) AS AVG_SAL FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "AVG_SAL": 2916.67 },
+      { "DEPTNO": 20, "AVG_SAL": 2175 },
+      { "DEPTNO": 30, "AVG_SAL": 1566.67 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "17. Department-wise number of employees.",
+    "query": "SELECT DEPTNO, COUNT(*) AS EMP_COUNT FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "EMP_COUNT": 3 },
+      { "DEPTNO": 20, "EMP_COUNT": 5 },
+      { "DEPTNO": 30, "EMP_COUNT": 6 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "18. Job-wise number of employees.",
+    "query": "SELECT JOB, COUNT(*) AS COUNT FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "CLERK", "COUNT": 4 },
+      { "JOB": "SALESMAN", "COUNT": 4 },
+      { "JOB": "MANAGER", "COUNT": 3 },
+      { "JOB": "ANALYST", "COUNT": 2 },
+      { "JOB": "PRESIDENT", "COUNT": 1 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "19. Job-wise total salary.",
+    "query": "SELECT JOB, SUM(SAL) AS SUM_SAL FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "ANALYST", "SUM_SAL": 6000 },
+      { "JOB": "CLERK", "SUM_SAL": 4150 },
+      { "JOB": "MANAGER", "SUM_SAL": 8275 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "20. Job-wise maximum salary.",
+    "query": "SELECT JOB, MAX(SAL) FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "MANAGER", "MAX": 2975 },
+      { "JOB": "ANALYST", "MAX": 3000 },
+      { "JOB": "PRESIDENT", "MAX": 5000 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "21. Job-wise minimum salary.",
+    "query": "SELECT JOB, MIN(SAL) FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "CLERK", "MIN": 800 },
+      { "JOB": "SALESMAN", "MIN": 1250 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "22. Department-wise maximum salary.",
+    "query": "SELECT DEPTNO, MAX(SAL) AS MAX_SAL FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "MAX_SAL": 5000 },
+      { "DEPTNO": 20, "MAX_SAL": 3000 },
+      { "DEPTNO": 30, "MAX_SAL": 2850 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "23. Department-wise minimum salary.",
+    "query": "SELECT DEPTNO, MIN(SAL) AS MIN_SAL FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "MIN_SAL": 1300 },
+      { "DEPTNO": 20, "MIN_SAL": 800 },
+      { "DEPTNO": 30, "MIN_SAL": 950 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "24. Department-wise average commission.",
+    "query": "SELECT DEPTNO, AVG(COMM) FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 30, "AVG": 550 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "25. Department and job-wise employee count.",
+    "query": "SELECT DEPTNO, JOB, COUNT(*) AS COUNT FROM EMP GROUP BY DEPTNO, JOB ORDER BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "JOB": "MANAGER", "COUNT": 1 },
+      { "DEPTNO": 20, "JOB": "ANALYST", "COUNT": 2 },
+      { "DEPTNO": 30, "JOB": "SALESMAN", "COUNT": 4 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "26. Department and job-wise total salary.",
+    "query": "SELECT DEPTNO, JOB, SUM(SAL) FROM EMP GROUP BY DEPTNO, JOB;",
+    "output_table": [
+      { "DEPTNO": 30, "JOB": "SALESMAN", "SUM": 5600 },
+      { "DEPTNO": 20, "JOB": "CLERK", "SUM": 1900 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "27. Department and job-wise average salary.",
+    "query": "SELECT DEPTNO, JOB, AVG(SAL) FROM EMP GROUP BY DEPTNO, JOB;",
+    "output_table": [
+      { "DEPTNO": 20, "JOB": "ANALYST", "AVG": 3000 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "28. Job-wise average commission.",
+    "query": "SELECT JOB, AVG(COMM) FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "SALESMAN", "AVG": 550 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "29. Dept-wise count where manager is NULL.",
+    "query": "SELECT DEPTNO, COUNT(*) AS COUNT FROM EMP WHERE MGR IS NULL GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "COUNT": 1 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "30. Dept-wise average commission (Excluding NULLs).",
+    "query": "SELECT DEPTNO, AVG(COMM) FROM EMP WHERE COMM IS NOT NULL GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 30, "AVG": 550 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "31. Job-wise total commission.",
+    "query": "SELECT JOB, SUM(COMM) FROM EMP GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "SALESMAN", "SUM": 2200 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "32. Dept-wise count of employees getting commission.",
+    "query": "SELECT DEPTNO, COUNT(COMM) FROM EMP GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 30, "COUNT": 4 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "33. Job-wise count of employees NOT getting commission.",
+    "query": "SELECT JOB, COUNT(*) FROM EMP WHERE COMM IS NULL GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "MANAGER", "COUNT": 3 },
+      { "JOB": "CLERK", "COUNT": 4 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "34. Dept-wise employee count for Salesmen only.",
+    "query": "SELECT DEPTNO, COUNT(*) FROM EMP WHERE JOB='SALESMAN' GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 30, "COUNT": 4 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "35. Job-wise maximum salary where salary > 1500.",
+    "query": "SELECT JOB, MAX(SAL) FROM EMP WHERE SAL > 1500 GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "MANAGER", "MAX": 2975 },
+      { "JOB": "ANALYST", "MAX": 3000 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "36. Dept-wise total salary excluding Dept 30.",
+    "query": "SELECT DEPTNO, SUM(SAL) FROM EMP WHERE DEPTNO != 30 GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "SUM": 8750 },
+      { "DEPTNO": 20, "SUM": 10875 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "37. Job-wise average salary in department 20.",
+    "query": "SELECT JOB, AVG(SAL) FROM EMP WHERE DEPTNO = 20 GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "ANALYST", "AVG": 3000 },
+      { "JOB": "CLERK", "AVG": 950 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "38. Dept-wise employee count where commission is present.",
+    "query": "SELECT DEPTNO, COUNT(*) FROM EMP WHERE COMM IS NOT NULL GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 30, "COUNT": 4 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "39. Job-wise total salary for Clerks and Managers.",
+    "query": "SELECT JOB, SUM(SAL) FROM EMP WHERE JOB IN ('CLERK','MANAGER') GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "CLERK", "SUM": 4150 },
+      { "JOB": "MANAGER", "SUM": 8275 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "40. Dept-wise average salary for post-1981 hires.",
+    "query": "SELECT DEPTNO, AVG(SAL) FROM EMP WHERE HIREDATE > '31-DEC-81' GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 10, "AVG": 1300 },
+      { "DEPTNO": 20, "AVG": 2050 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "41. Job-wise employee count where salary > 2000.",
+    "query": "SELECT JOB, COUNT(*) FROM EMP WHERE SAL > 2000 GROUP BY JOB;",
+    "output_table": [
+      { "JOB": "MANAGER", "COUNT": 3 },
+      { "JOB": "ANALYST", "COUNT": 2 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "42. Dept-wise total salary for Dept numbers > 10.",
+    "query": "SELECT DEPTNO, SUM(SAL) FROM EMP WHERE DEPTNO > 10 GROUP BY DEPTNO;",
+    "output_table": [
+      { "DEPTNO": 20, "SUM": 10875 },
+      { "DEPTNO": 30, "SUM": 9400 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "43. Dept and Job-wise total commission.",
+    "query": "SELECT DEPTNO, JOB, SUM(COMM) FROM EMP GROUP BY DEPTNO, JOB;",
+    "output_table": [
+      { "DEPTNO": 30, "JOB": "SALESMAN", "SUM": 2200 }
+    ]
+  },
+  {
+    "group": "GROUP BY Clause",
+    "question": "44. Total salary expenditure per hire year.",
+    "query": "SELECT TO_CHAR(HIREDATE, 'YYYY') AS Year, SUM(SAL) FROM EMP GROUP BY TO_CHAR(HIREDATE, 'YYYY');",
+    "output_table": [
+      { "YEAR": "1980", "SUM": 800 },
+      { "YEAR": "1981", "SUM": 22825 }
+    ]
+  }
+]

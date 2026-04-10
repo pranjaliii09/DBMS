@@ -1,0 +1,222 @@
+[
+  {
+    "group": "LIKE Operator",
+    "question": "1. Display all columns of employees whose name starts with 'A'.",
+    "query": "SELECT * FROM EMP WHERE ENAME LIKE 'A%';",
+    "output_table": [
+      { "EMPNO": 7499, "ENAME": "ALLEN", "JOB": "SALESMAN", "MGR": 7698, "HIREDATE": "20-FEB-81", "SAL": 1600, "COMM": 300, "DEPTNO": 30 },
+      { "EMPNO": 7876, "ENAME": "ADAMS", "JOB": "CLERK", "MGR": 7788, "HIREDATE": "23-MAY-87", "SAL": 1100, "COMM": null, "DEPTNO": 20 }
+    ]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "2. Display employee names that end with 'N'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%N';",
+    "output_table": [{ "ENAME": "ALLEN" }, { "ENAME": "MARTIN" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "3. Display names that contain 'LL' anywhere.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%LL%';",
+    "output_table": [{ "ENAME": "ALLEN" }, { "ENAME": "MILLER" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "4. Display all columns where job starts with 'M'.",
+    "query": "SELECT * FROM EMP WHERE JOB LIKE 'M%';",
+    "output_table": [
+      { "EMPNO": 7698, "ENAME": "BLAKE", "JOB": "MANAGER", "MGR": 7839, "HIREDATE": "01-MAY-81", "SAL": 2850, "DEPTNO": 30 },
+      { "EMPNO": 7782, "ENAME": "CLARK", "JOB": "MANAGER", "MGR": 7839, "HIREDATE": "09-JUN-81", "SAL": 2450, "DEPTNO": 10 }
+    ]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "5. Display employees whose job ends with 'AN'.",
+    "query": "SELECT * FROM EMP WHERE JOB LIKE '%AN';",
+    "output_table": [
+      { "ENAME": "ALLEN", "JOB": "SALESMAN" }, { "ENAME": "WARD", "JOB": "SALESMAN" }
+    ]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "6. Display employees whose name has exactly 5 characters.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '_____';",
+    "output_table": [
+      { "ENAME": "SMITH" }, { "ENAME": "ALLEN" }, { "ENAME": "JONES" }, { "ENAME": "BLAKE" }, { "ENAME": "CLARK" }, { "ENAME": "SCOTT" }, { "ENAME": "ADAMS" }, { "ENAME": "JAMES" }
+    ]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "7. Display employees whose name has 'A' as the second character.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '_A%';",
+    "output_table": [{ "ENAME": "MARTIN" }, { "ENAME": "JAMES" }, { "ENAME": "WARD" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "8. Display employees whose name has 'L' as the third character.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '__L%';",
+    "output_table": [{ "ENAME": "ALLEN" }, { "ENAME": "MILLER" }, { "ENAME": "BLAKE" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "9. Display employees whose job has exactly 6 characters.",
+    "query": "SELECT ENAME, JOB FROM EMP WHERE JOB LIKE '______';",
+    "output_table": [{ "ENAME": "SMITH", "JOB": "CLERK" }, { "ENAME": "ADAMS", "JOB": "CLERK" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "10. Display names that start with 'A' and end with 'N'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE 'A%N';",
+    "output_table": [{ "ENAME": "ALLEN" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "11. Display names with exactly 2 characters before 'E'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '__E%';",
+    "output_table": [{ "ENAME": "JAMES" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "12. Display names with exactly 1 character after 'A'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%A_';",
+    "output_table": [{ "ENAME": "BLAKE" }, { "ENAME": "ADAMS" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "13. Display names that contain 'E' anywhere.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%E%';",
+    "output_table": [{ "ENAME": "BLAKE" }, { "ENAME": "ALLEN" }, { "ENAME": "JAMES" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "14. Display names that DO NOT contain 'A'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME NOT LIKE '%A%';",
+    "output_table": [{ "ENAME": "KING" }, { "ENAME": "SMITH" }, { "ENAME": "FORD" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "15. Display jobs that do not start with 'C'.",
+    "query": "SELECT DISTINCT JOB FROM EMP WHERE JOB NOT LIKE 'C%';",
+    "output_table": [{ "JOB": "PRESIDENT" }, { "JOB": "MANAGER" }, { "JOB": "ANALYST" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "16. Name starts with 'J' and has 'S' anywhere.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE 'J%S%';",
+    "output_table": [{ "ENAME": "JONES" }, { "ENAME": "JAMES" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "17. Name contains 'A' as the second last character.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%A_';",
+    "output_table": [{ "ENAME": "ADAMS" }, { "ENAME": "CLARK" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "18. Names with exactly one character between 'A' and 'E'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%A_E%';",
+    "output_table": [{ "ENAME": "BLAKE" }, { "ENAME": "JAMES" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "19. Name starts with 'S' and salary > 2000.",
+    "query": "SELECT ENAME, SAL FROM EMP WHERE ENAME LIKE 'S%' AND SAL > 2000;",
+    "output_table": [{ "ENAME": "SCOTT", "SAL": 3000 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "20. Job ends with 'MAN' and Dept is 20.",
+    "query": "SELECT ENAME, JOB, DEPTNO FROM EMP WHERE JOB LIKE '%MAN' AND DEPTNO = 20;",
+    "output_table": []
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "21. Name contains 'A' and commission is NULL.",
+    "query": "SELECT ENAME, COMM FROM EMP WHERE ENAME LIKE '%A%' AND COMM IS NULL;",
+    "output_table": [{ "ENAME": "BLAKE", "COMM": null }, { "ENAME": "CLARK", "COMM": null }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "22. Job starts with 'C' and salary < 1500.",
+    "query": "SELECT ENAME, JOB, SAL FROM EMP WHERE JOB LIKE 'C%' AND SAL < 1500;",
+    "output_table": [{ "ENAME": "SMITH", "SAL": 800 }, { "ENAME": "ADAMS", "SAL": 1100 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "23. Name ends with 'S' and hired after 1981.",
+    "query": "SELECT ENAME, HIREDATE FROM EMP WHERE ENAME LIKE '%S' AND HIREDATE > '31-DEC-1981';",
+    "output_table": [{ "ENAME": "ADAMS", "HIREDATE": "23-MAY-87" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "24. Name starts with 'M' and Dept is not 10.",
+    "query": "SELECT ENAME, DEPTNO FROM EMP WHERE ENAME LIKE 'M%' AND DEPTNO != 10;",
+    "output_table": [{ "ENAME": "MARTIN", "DEPTNO": 30 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "25. Job contains 'ER' and salary 2000 to 3000.",
+    "query": "SELECT ENAME, JOB, SAL FROM EMP WHERE JOB LIKE '%ER%' AND SAL BETWEEN 2000 AND 3000;",
+    "output_table": [{ "ENAME": "BLAKE", "SAL": 2850 }, { "ENAME": "CLARK", "SAL": 2450 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "26. Name starts with 'A' or Job starts with 'S'.",
+    "query": "SELECT ENAME, JOB FROM EMP WHERE ENAME LIKE 'A%' OR JOB LIKE 'S%';",
+    "output_table": [{ "ENAME": "ALLEN", "JOB": "SALESMAN" }, { "ENAME": "TURNER", "JOB": "SALESMAN" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "27. Name starts with 'S', sorted alphabetically.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE 'S%' ORDER BY ENAME;",
+    "output_table": [{ "ENAME": "SCOTT" }, { "ENAME": "SMITH" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "28. Name contains 'A', sorted by salary.",
+    "query": "SELECT ENAME, SAL FROM EMP WHERE ENAME LIKE '%A%' ORDER BY SAL;",
+    "output_table": [{ "ENAME": "ADAMS", "SAL": 1100 }, { "ENAME": "WARD", "SAL": 1250 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "29. Name ends with 'E', ordered by hire date.",
+    "query": "SELECT ENAME, HIREDATE FROM EMP WHERE ENAME LIKE '%E' ORDER BY HIREDATE;",
+    "output_table": [{ "ENAME": "BLAKE", "HIREDATE": "01-MAY-81" }, { "ENAME": "JAMES", "HIREDATE": "03-DEC-81" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "30. Annual Salary for names starting with 'J'.",
+    "query": "SELECT ENAME, SAL * 12 AS Annual_Salary FROM EMP WHERE ENAME LIKE 'J%';",
+    "output_table": [{ "ENAME": "JONES", "Annual_Salary": 35700 }, { "ENAME": "JAMES", "Annual_Salary": 11400 }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "31. Name has 6 characters and ends with 'R'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '_____R';",
+    "output_table": [{ "ENAME": "MILLER" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "32. At least two characters before 'A'.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '__%A%';",
+    "output_table": [{ "ENAME": "ADAMS" }, { "ENAME": "CLARK" }, { "ENAME": "MARTIN" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "33. Name does not start with any Vowel.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME NOT LIKE 'A%' AND ENAME NOT LIKE 'E%' AND ENAME NOT LIKE 'I%' AND ENAME NOT LIKE 'O%' AND ENAME NOT LIKE 'U%';",
+    "output_table": [{ "ENAME": "KING" }, { "ENAME": "BLAKE" }, { "ENAME": "SMITH" }]
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "34. Name starts and ends with the same character.",
+    "query": "SELECT ENAME FROM EMP WHERE SUBSTR(ENAME, 1, 1) = SUBSTR(ENAME, -1);",
+    "output_table": []
+  },
+  {
+    "group": "LIKE Operator",
+    "question": "35. Contains 'A' but not as the first character.",
+    "query": "SELECT ENAME FROM EMP WHERE ENAME LIKE '%A%' AND ENAME NOT LIKE 'A%';",
+    "output_table": [{ "ENAME": "BLAKE" }, { "ENAME": "MARTIN" }, { "ENAME": "WARD" }]
+  }
+]

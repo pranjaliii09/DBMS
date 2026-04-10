@@ -1,0 +1,183 @@
+[
+  {
+    "group": "Simple Loop",
+    "question": "1. Print numbers 1 to 5 using a SIMPLE LOOP.",
+    "query": "DECLARE\n  i NUMBER := 1;\nBEGIN\n  LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n    i := i + 1;\n    EXIT WHEN i > 5;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "3" }, 
+      { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "5" }
+    ]
+  },
+  {
+    "group": "Simple Loop",
+    "question": "2. Display numbers 10 to 1 in reverse order.",
+    "query": "DECLARE\n  i NUMBER := 10;\nBEGIN\n  LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n    i := i - 1;\n    EXIT WHEN i < 1;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "10" }, { "SCRIPT_OUTPUT": "9" }, { "SCRIPT_OUTPUT": "8" }, 
+      { "SCRIPT_OUTPUT": "7" }, { "SCRIPT_OUTPUT": "6" }, { "SCRIPT_OUTPUT": "5" }, 
+      { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "3" }, { "SCRIPT_OUTPUT": "2" }, 
+      { "SCRIPT_OUTPUT": "1" }
+    ]
+  },
+  {
+    "group": "Simple Loop",
+    "question": "3. Calculate the sum of numbers from 1 to 10.",
+    "query": "DECLARE\n  i NUMBER := 1; s NUMBER := 0;\nBEGIN\n  LOOP\n    s := s + i;\n    i := i + 1;\n    EXIT WHEN i > 10;\n  END LOOP;\n  DBMS_OUTPUT.PUT_LINE('Sum: ' || s);\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Sum: 55" }]
+  },
+  {
+    "group": "Simple Loop",
+    "question": "4. Multiplication table of 2 using SIMPLE LOOP.",
+    "query": "DECLARE\n  n NUMBER := 2; i NUMBER := 1;\nBEGIN\n  LOOP\n    DBMS_OUTPUT.PUT_LINE(n || ' * ' || i || ' = ' || (n*i));\n    i := i + 1;\n    EXIT WHEN i > 10;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "2 * 1 = 2" }, { "SCRIPT_OUTPUT": "2 * 2 = 4" }, { "SCRIPT_OUTPUT": "2 * 3 = 6" },
+      { "SCRIPT_OUTPUT": "2 * 4 = 8" }, { "SCRIPT_OUTPUT": "2 * 5 = 10" }, { "SCRIPT_OUTPUT": "2 * 6 = 12" },
+      { "SCRIPT_OUTPUT": "2 * 7 = 14" }, { "SCRIPT_OUTPUT": "2 * 8 = 16" }, { "SCRIPT_OUTPUT": "2 * 9 = 18" },
+      { "SCRIPT_OUTPUT": "2 * 10 = 20" }
+    ]
+  },
+  {
+    "group": "Simple Loop",
+    "question": "5. Print even numbers between 1 and 20.",
+    "query": "DECLARE\n  i NUMBER := 2;\nBEGIN\n  LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n    i := i + 2;\n    EXIT WHEN i > 20;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "6" }, { "SCRIPT_OUTPUT": "8" }, 
+      { "SCRIPT_OUTPUT": "10" }, { "SCRIPT_OUTPUT": "12" }, { "SCRIPT_OUTPUT": "14" }, { "SCRIPT_OUTPUT": "16" }, 
+      { "SCRIPT_OUTPUT": "18" }, { "SCRIPT_OUTPUT": "20" }
+    ]
+  },
+  {
+    "group": "Simple Loop",
+    "question": "6. Exit loop when number exceeds 50 starting from 45.",
+    "query": "DECLARE\n  i NUMBER := 45;\nBEGIN\n  LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n    i := i + 1;\n    EXIT WHEN i > 50;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "45" }, { "SCRIPT_OUTPUT": "46" }, { "SCRIPT_OUTPUT": "47" }, 
+      { "SCRIPT_OUTPUT": "48" }, { "SCRIPT_OUTPUT": "49" }, { "SCRIPT_OUTPUT": "50" }
+    ]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "7. Print numbers 1 to 10 using WHILE LOOP.",
+    "query": "DECLARE\n  i NUMBER := 1;\nBEGIN\n  WHILE i <= 10 LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n    i := i + 1;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "3" }, 
+      { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "5" }, { "SCRIPT_OUTPUT": "6" }, 
+      { "SCRIPT_OUTPUT": "7" }, { "SCRIPT_OUTPUT": "8" }, { "SCRIPT_OUTPUT": "9" }, 
+      { "SCRIPT_OUTPUT": "10" }
+    ]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "8. Calculate the factorial of 5.",
+    "query": "DECLARE\n  n NUMBER := 5; f NUMBER := 1;\nBEGIN\n  WHILE n > 0 LOOP\n    f := f * n;\n    n := n - 1;\n  END LOOP;\n  DBMS_OUTPUT.PUT_LINE('Factorial: ' || f);\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Factorial: 120" }]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "9. Sum of the digits of 123.",
+    "query": "DECLARE\n  n NUMBER := 123; s NUMBER := 0;\nBEGIN\n  WHILE n > 0 LOOP\n    s := s + MOD(n, 10);\n    n := TRUNC(n / 10);\n  END LOOP;\n  DBMS_OUTPUT.PUT_LINE('Sum: ' || s);\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Sum: 6" }]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "10. Reverse a number (123 to 321).",
+    "query": "DECLARE\n  n NUMBER := 123; r NUMBER := 0;\nBEGIN\n  WHILE n > 0 LOOP\n    r := (r * 10) + MOD(n, 10);\n    n := TRUNC(n / 10);\n  END LOOP;\n  DBMS_OUTPUT.PUT_LINE('Reversed: ' || r);\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Reversed: 321" }]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "11. Check if number 121 is Palindrome.",
+    "query": "DECLARE\n  n NUMBER := 121; r NUMBER := 0; temp NUMBER;\nBEGIN\n  temp := n;\n  WHILE n > 0 LOOP\n    r := (r * 10) + MOD(n, 10);\n    n := TRUNC(n / 10);\n  END LOOP;\n  IF temp = r THEN DBMS_OUTPUT.PUT_LINE('Palindrome'); END IF;\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Palindrome" }]
+  },
+  {
+    "group": "WHILE Loop",
+    "question": "12. Fibonacci series up to 5 terms.",
+    "query": "DECLARE\n  a NUMBER:=0; b NUMBER:=1; c NUMBER; i NUMBER:=1;\nBEGIN\n  WHILE i <= 5 LOOP\n    DBMS_OUTPUT.PUT_LINE(a);\n    c := a + b; a := b; b := c; i := i + 1;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "0" }, { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "1" }, 
+      { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "3" }
+    ]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "13. Print numbers 1 to 10 using FOR LOOP.",
+    "query": "BEGIN\n  FOR i IN 1..10 LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "3" }, 
+      { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "5" }, { "SCRIPT_OUTPUT": "6" }, 
+      { "SCRIPT_OUTPUT": "7" }, { "SCRIPT_OUTPUT": "8" }, { "SCRIPT_OUTPUT": "9" }, 
+      { "SCRIPT_OUTPUT": "10" }
+    ]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "14. Reverse order 5 to 1 using REVERSE keyword.",
+    "query": "BEGIN\n  FOR i IN REVERSE 1..5 LOOP\n    DBMS_OUTPUT.PUT_LINE(i);\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "5" }, { "SCRIPT_OUTPUT": "4" }, { "SCRIPT_OUTPUT": "3" }, 
+      { "SCRIPT_OUTPUT": "2" }, { "SCRIPT_OUTPUT": "1" }
+    ]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "15. Sum of first 10 natural numbers using FOR LOOP.",
+    "query": "DECLARE\n  s NUMBER := 0;\nBEGIN\n  FOR i IN 1..10 LOOP s := s + i; END LOOP;\n  DBMS_OUTPUT.PUT_LINE('Total Sum: ' || s);\nEND;",
+    "output_table": [{ "SCRIPT_OUTPUT": "Total Sum: 55" }]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "16. Multiplication table of 5 using FOR LOOP.",
+    "query": "BEGIN\n  FOR i IN 1..10 LOOP\n    DBMS_OUTPUT.PUT_LINE('5 * ' || i || ' = ' || (5*i));\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "5 * 1 = 5" }, { "SCRIPT_OUTPUT": "5 * 2 = 10" }, 
+      { "SCRIPT_OUTPUT": "5 * 10 = 50" }
+    ]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "17. Squares of numbers 1 to 5.",
+    "query": "BEGIN\n  FOR i IN 1..5 LOOP\n    DBMS_OUTPUT.PUT_LINE('Square of ' || i || ' is ' || (i*i));\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "Square of 1 is 1" }, { "SCRIPT_OUTPUT": "Square of 2 is 4" }, 
+      { "SCRIPT_OUTPUT": "Square of 3 is 9" }, { "SCRIPT_OUTPUT": "Square of 4 is 16" }, 
+      { "SCRIPT_OUTPUT": "Square of 5 is 25" }
+    ]
+  },
+  {
+    "group": "FOR Loop",
+    "question": "18. Display odd numbers between 1 and 10.",
+    "query": "BEGIN\n  FOR i IN 1..10 LOOP\n    IF MOD(i, 2) != 0 THEN DBMS_OUTPUT.PUT_LINE(i); END IF;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "3" }, { "SCRIPT_OUTPUT": "5" }, 
+      { "SCRIPT_OUTPUT": "7" }, { "SCRIPT_OUTPUT": "9" }
+    ]
+  },
+  {
+    "group": "Nested Loops",
+    "question": "19. Print pattern (* ** *** ****).",
+    "query": "DECLARE\n  v_star VARCHAR2(10);\nBEGIN\n  FOR i IN 1..4 LOOP\n    v_star := v_star || '*';\n    DBMS_OUTPUT.PUT_LINE(v_star);\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "*" }, { "SCRIPT_OUTPUT": "**" }, 
+      { "SCRIPT_OUTPUT": "***" }, { "SCRIPT_OUTPUT": "****" }
+    ]
+  },
+  {
+    "group": "Nested Loops",
+    "question": "20. Multiplication tables 1 and 2 (Short Version).",
+    "query": "BEGIN\n  FOR i IN 1..2 LOOP\n    FOR j IN 1..3 LOOP\n      DBMS_OUTPUT.PUT_LINE(i || '*' || j || '=' || (i*j));\n    END LOOP;\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1*1=1" }, { "SCRIPT_OUTPUT": "1*2=2" }, { "SCRIPT_OUTPUT": "1*3=3" },
+      { "SCRIPT_OUTPUT": "2*1=2" }, { "SCRIPT_OUTPUT": "2*2=4" }, { "SCRIPT_OUTPUT": "2*3=6" }
+    ]
+  },
+  {
+    "group": "Nested Loops",
+    "question": "21. Number pattern 1, 12, 123, 1234.",
+    "query": "DECLARE\n  v_num VARCHAR2(10);\nBEGIN\n  FOR i IN 1..4 LOOP\n    v_num := v_num || i;\n    DBMS_OUTPUT.PUT_LINE(v_num);\n  END LOOP;\nEND;",
+    "output_table": [
+      { "SCRIPT_OUTPUT": "1" }, { "SCRIPT_OUTPUT": "12" }, 
+      { "SCRIPT_OUTPUT": "123" }, { "SCRIPT_OUTPUT": "1234" }
+    ]
+  }
+]

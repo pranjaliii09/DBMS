@@ -1,0 +1,152 @@
+[
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "1. Insert record into STUDENT (101, RAHUL, 20, MCA).",
+    "query": "INSERT INTO STUDENT (SID, SNAME, AGE, COURSE) VALUES (101, 'RAHUL', 20, 'MCA');",
+    "output_table": [{ "RESULT": "1 row created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "2. Insert record into EMPLOYEE (201, ANITA, 45000, 10).",
+    "query": "INSERT INTO EMPLOYEE (EID, ENAME, SALARY, DEPTNO) VALUES (201, 'ANITA', 45000, 10);",
+    "output_table": [{ "RESULT": "1 row created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "3. Insert new department (50, TRAINING, DELHI).",
+    "query": "INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (50, 'TRAINING', 'DELHI');",
+    "output_table": [{ "RESULT": "1 row created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "4. Insert into BOOK with specific columns.",
+    "query": "INSERT INTO BOOK (BOOK_ID, TITLE, PRICE) VALUES (501, 'SQL Guide', 450);",
+    "output_table": [{ "RESULT": "1 row created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "5. Insert multiple rows into COURSE using INSERT ALL.",
+    "query": "INSERT ALL INTO COURSE VALUES (1, 'Java', 6) INTO COURSE VALUES (2, 'Python', 4) SELECT * FROM DUAL;",
+    "output_table": [{ "RESULT": "2 rows created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "6. Insert into EMP_COPY from EMP.",
+    "query": "INSERT INTO EMP_COPY SELECT * FROM EMP;",
+    "output_table": [{ "RESULT": "14 rows created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "7. Insert high salary employees (>3000).",
+    "query": "INSERT INTO EMP_HIGH_SAL SELECT * FROM EMP WHERE SAL > 3000;",
+    "output_table": [{ "RESULT": "3 rows created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "8. Insert employees hired after 1981.",
+    "query": "INSERT INTO EMP_NEW_HIRE SELECT * FROM EMP WHERE HIREDATE > '31-DEC-1981';",
+    "output_table": [{ "RESULT": "5 rows created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "9. Insert into DEPT_BACKUP.",
+    "query": "INSERT INTO DEPT_BACKUP (DEPTNO, DNAME) SELECT DEPTNO, DNAME FROM DEPT;",
+    "output_table": [{ "RESULT": "4 rows created." }]
+  },
+  {
+    "group": "Insert Operations (1-10)",
+    "question": "10. Insert into EMP_SALARY_RECORD.",
+    "query": "INSERT INTO EMP_SALARY_RECORD (ENAME, SAL) SELECT ENAME, SAL FROM EMP;",
+    "output_table": [{ "RESULT": "14 rows created." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "11. Update salary of SMITH to 2000.",
+    "query": "UPDATE EMP SET SAL = 2000 WHERE ENAME = 'SMITH';",
+    "output_table": [{ "RESULT": "1 row updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "12. Increase all salaries by 10%.",
+    "query": "UPDATE EMP SET SAL = SAL * 1.10;",
+    "output_table": [{ "RESULT": "14 rows updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "13. Update department of ALLEN to 20.",
+    "query": "UPDATE EMP SET DEPTNO = 20 WHERE ENAME = 'ALLEN';",
+    "output_table": [{ "RESULT": "1 row updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "14. Update commission of SALESMAN to 500.",
+    "query": "UPDATE EMP SET COMM = 500 WHERE JOB = 'SALESMAN';",
+    "output_table": [{ "RESULT": "4 rows updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "15. Update job of MILLER to MANAGER.",
+    "query": "UPDATE EMP SET JOB = 'MANAGER' WHERE ENAME = 'MILLER';",
+    "output_table": [{ "RESULT": "1 row updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "16. Increase salary in Dept 10 by 20%.",
+    "query": "UPDATE EMP SET SAL = SAL * 1.20 WHERE DEPTNO = 10;",
+    "output_table": [{ "RESULT": "3 rows updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "17. Update CLERK salary to 1500.",
+    "query": "UPDATE EMP SET SAL = 1500 WHERE JOB = 'CLERK';",
+    "output_table": [{ "RESULT": "4 rows updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "18. Update location of Dept 30 to MUMBAI.",
+    "query": "UPDATE DEPT SET LOC = 'MUMBAI' WHERE DEPTNO = 30;",
+    "output_table": [{ "RESULT": "1 row updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "19. Update NULL commission to 100.",
+    "query": "UPDATE EMP SET COMM = 100 WHERE COMM IS NULL;",
+    "output_table": [{ "RESULT": "10 rows updated." }]
+  },
+  {
+    "group": "Update Operations (11-20)",
+    "question": "20. Update salary below average salary.",
+    "query": "UPDATE EMP SET SAL = SAL + 200 WHERE SAL < (SELECT AVG(SAL) FROM EMP);",
+    "output_table": [{ "RESULT": "8 rows updated." }]
+  },
+  {
+    "group": "Delete Operations (21-30)",
+    "question": "21. Delete employee SMITH.",
+    "query": "DELETE FROM EMP WHERE ENAME = 'SMITH';",
+    "output_table": [{ "RESULT": "1 row deleted." }]
+  },
+  {
+    "group": "Delete Operations (21-30)",
+    "question": "22. Delete all employees in Dept 30.",
+    "query": "DELETE FROM EMP WHERE DEPTNO = 30;",
+    "output_table": [{ "RESULT": "6 rows deleted." }]
+  },
+  {
+    "group": "Delete Operations (21-30)",
+    "question": "23. Delete salary < 1000.",
+    "query": "DELETE FROM EMP WHERE SAL < 1000;",
+    "output_table": [{ "RESULT": "1 row deleted." }]
+  },
+  {
+    "group": "Delete Operations (21-30)",
+    "question": "24. Delete hired before 1981.",
+    "query": "DELETE FROM EMP WHERE HIREDATE < '01-JAN-1981';",
+    "output_table": [{ "RESULT": "1 row deleted." }]
+  },
+  {
+    "group": "Delete Operations (21-30)",
+    "question": "25. Delete employees with no commission.",
+    "query": "DELETE FROM EMP WHERE COMM IS NULL OR COMM = 0;",
+    "output_table": [{ "RESULT": "10 rows deleted." }]
+  }
+]

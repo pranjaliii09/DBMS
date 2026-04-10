@@ -1,0 +1,126 @@
+[
+  { "group": "String Functions", "question": "1. Display names in Uppercase and Lowercase for all employees.", "query": "SELECT ENAME, \n       UPPER(ENAME) AS Upper_Name, \n       LOWER(ENAME) AS Lower_Name \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "UPPER_NAME": "KING", "LOWER_NAME": "king" }, { "ENAME": "BLAKE", "UPPER_NAME": "BLAKE", "LOWER_NAME": "blake" },
+      { "ENAME": "CLARK", "UPPER_NAME": "CLARK", "LOWER_NAME": "clark" }, { "ENAME": "JONES", "UPPER_NAME": "JONES", "LOWER_NAME": "jones" },
+      { "ENAME": "SCOTT", "UPPER_NAME": "SCOTT", "LOWER_NAME": "scott" }, { "ENAME": "FORD", "UPPER_NAME": "FORD", "LOWER_NAME": "ford" },
+      { "ENAME": "SMITH", "UPPER_NAME": "SMITH", "LOWER_NAME": "smith" }, { "ENAME": "ALLEN", "UPPER_NAME": "ALLEN", "LOWER_NAME": "allen" },
+      { "ENAME": "WARD", "UPPER_NAME": "WARD", "LOWER_NAME": "ward" }, { "ENAME": "MARTIN", "UPPER_NAME": "MARTIN", "LOWER_NAME": "martin" },
+      { "ENAME": "TURNER", "UPPER_NAME": "TURNER", "LOWER_NAME": "turner" }, { "ENAME": "ADAMS", "UPPER_NAME": "ADAMS", "LOWER_NAME": "adams" },
+      { "ENAME": "JAMES", "UPPER_NAME": "JAMES", "LOWER_NAME": "james" }, { "ENAME": "MILLER", "UPPER_NAME": "MILLER", "LOWER_NAME": "miller" }
+  ]},
+  { "group": "String Functions", "question": "2. Display employee name and its total length for all employees.", "query": "SELECT ENAME, \n       LENGTH(ENAME) AS Name_Length \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "NAME_LENGTH": 4 }, { "ENAME": "BLAKE", "NAME_LENGTH": 5 }, { "ENAME": "CLARK", "NAME_LENGTH": 5 },
+      { "ENAME": "JONES", "NAME_LENGTH": 5 }, { "ENAME": "SCOTT", "NAME_LENGTH": 5 }, { "ENAME": "FORD", "NAME_LENGTH": 4 },
+      { "ENAME": "SMITH", "NAME_LENGTH": 5 }, { "ENAME": "ALLEN", "NAME_LENGTH": 5 }, { "ENAME": "WARD", "NAME_LENGTH": 4 },
+      { "ENAME": "MARTIN", "NAME_LENGTH": 6 }, { "ENAME": "TURNER", "NAME_LENGTH": 6 }, { "ENAME": "ADAMS", "NAME_LENGTH": 5 },
+      { "ENAME": "JAMES", "NAME_LENGTH": 5 }, { "ENAME": "MILLER", "NAME_LENGTH": 6 }
+  ]},
+  { "group": "String Functions", "question": "3. Extract first 4 characters of names for all employees.", "query": "SELECT ENAME, \n       SUBSTR(ENAME, 1, 4) AS Short_Name \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "SHORT_NAME": "KING" }, { "ENAME": "BLAKE", "SHORT_NAME": "BLAK" }, { "ENAME": "CLARK", "SHORT_NAME": "CLAR" },
+      { "ENAME": "JONES", "SHORT_NAME": "JONE" }, { "ENAME": "SCOTT", "SHORT_NAME": "SCOT" }, { "ENAME": "FORD", "SHORT_NAME": "FORD" },
+      { "ENAME": "SMITH", "SHORT_NAME": "SMIT" }, { "ENAME": "ALLEN", "SHORT_NAME": "ALLE" }, { "ENAME": "WARD", "SHORT_NAME": "WARD" },
+      { "ENAME": "MARTIN", "SHORT_NAME": "MART" }, { "ENAME": "TURNER", "SHORT_NAME": "TURN" }, { "ENAME": "ADAMS", "SHORT_NAME": "ADAM" },
+      { "ENAME": "JAMES", "SHORT_NAME": "JAME" }, { "ENAME": "MILLER", "SHORT_NAME": "MILL" }
+  ]},
+  { "group": "String Functions", "question": "4. Concatenate name and job using a hyphen for all employees.", "query": "SELECT ENAME || ' - ' || JOB AS Details \nFROM EMP;", "output_table": [
+      { "DETAILS": "KING - PRESIDENT" }, { "DETAILS": "BLAKE - MANAGER" }, { "DETAILS": "CLARK - MANAGER" },
+      { "DETAILS": "JONES - MANAGER" }, { "DETAILS": "SCOTT - ANALYST" }, { "DETAILS": "FORD - ANALYST" },
+      { "DETAILS": "SMITH - CLERK" }, { "DETAILS": "ALLEN - SALESMAN" }, { "DETAILS": "WARD - SALESMAN" },
+      { "DETAILS": "MARTIN - SALESMAN" }, { "DETAILS": "TURNER - SALESMAN" }, { "DETAILS": "ADAMS - CLERK" },
+      { "DETAILS": "JAMES - CLERK" }, { "DETAILS": "MILLER - CLERK" }
+  ]},
+  { "group": "String Functions", "question": "5. Replace 'A' with '#' in names for all employees.", "query": "SELECT ENAME, \n       REPLACE(ENAME, 'A', '#') AS New_Name \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "NEW_NAME": "KING" }, { "ENAME": "BLAKE", "NEW_NAME": "BL#KE" }, { "ENAME": "CLARK", "NEW_NAME": "CL#RK" },
+      { "ENAME": "JONES", "NEW_NAME": "JONES" }, { "ENAME": "SCOTT", "NEW_NAME": "SCOTT" }, { "ENAME": "FORD", "NEW_NAME": "FORD" },
+      { "ENAME": "SMITH", "NEW_NAME": "SMITH" }, { "ENAME": "ALLEN", "NEW_NAME": "#LLEN" }, { "ENAME": "WARD", "NEW_NAME": "W#RD" },
+      { "ENAME": "MARTIN", "NEW_NAME": "M#RTIN" }, { "ENAME": "TURNER", "NEW_NAME": "TURNER" }, { "ENAME": "ADAMS", "NEW_NAME": "#D#MS" },
+      { "ENAME": "JAMES", "NEW_NAME": "J#MES" }, { "ENAME": "MILLER", "NEW_NAME": "MILLER" }
+  ]},
+  { "group": "String Functions", "question": "6. Find position of first 'E' in names for all employees.", "query": "SELECT ENAME, \n       INSTR(ENAME, 'E') AS Pos_E \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "POS_E": 0 }, { "ENAME": "BLAKE", "POS_E": 5 }, { "ENAME": "CLARK", "POS_E": 0 },
+      { "ENAME": "JONES", "POS_E": 4 }, { "ENAME": "SCOTT", "POS_E": 0 }, { "ENAME": "FORD", "POS_E": 0 },
+      { "ENAME": "SMITH", "POS_E": 0 }, { "ENAME": "ALLEN", "POS_E": 4 }, { "ENAME": "WARD", "POS_E": 0 },
+      { "ENAME": "MARTIN", "POS_E": 0 }, { "ENAME": "TURNER", "POS_E": 5 }, { "ENAME": "ADAMS", "POS_E": 0 },
+      { "ENAME": "JAMES", "POS_E": 4 }, { "ENAME": "MILLER", "POS_E": 5 }
+  ]},
+  { "group": "String Functions", "question": "7. Display names with the first letter capitalized (Initcap) for all.", "query": "SELECT INITCAP(ENAME) AS Formatted \nFROM EMP;", "output_table": [
+      { "FORMATTED": "King" }, { "FORMATTED": "Blake" }, { "FORMATTED": "Clark" }, { "FORMATTED": "Jones" },
+      { "FORMATTED": "Scott" }, { "FORMATTED": "Ford" }, { "FORMATTED": "Smith" }, { "FORMATTED": "Allen" },
+      { "FORMATTED": "Ward" }, { "FORMATTED": "Martin" }, { "FORMATTED": "Turner" }, { "FORMATTED": "Adams" },
+      { "FORMATTED": "James" }, { "FORMATTED": "Miller" }
+  ]},
+  { "group": "String Functions", "question": "8. Extract the last 3 characters of names for all employees.", "query": "SELECT ENAME, \n       SUBSTR(ENAME, -3) AS Last_3 \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "LAST_3": "ING" }, { "ENAME": "BLAKE", "LAST_3": "AKE" }, { "ENAME": "CLARK", "LAST_3": "ARK" },
+      { "ENAME": "JONES", "LAST_3": "NES" }, { "ENAME": "SCOTT", "LAST_3": "OTT" }, { "ENAME": "FORD", "LAST_3": "ORD" },
+      { "ENAME": "SMITH", "LAST_3": "ITH" }, { "ENAME": "ALLEN", "LAST_3": "LEN" }, { "ENAME": "WARD", "LAST_3": "ARD" },
+      { "ENAME": "MARTIN", "LAST_3": "TIN" }, { "ENAME": "TURNER", "LAST_3": "NER" }, { "ENAME": "ADAMS", "LAST_3": "AMS" },
+      { "ENAME": "JAMES", "LAST_3": "MES" }, { "ENAME": "MILLER", "LAST_3": "LER" }
+  ]},
+  { "group": "String Functions", "question": "9. Pad name with '*' to length 10 (LPAD) for all employees.", "query": "SELECT LPAD(ENAME, 10, '*') AS Padded \nFROM EMP;", "output_table": [
+      { "PADDED": "******KING" }, { "PADDED": "*****BLAKE" }, { "PADDED": "*****CLARK" }, { "PADDED": "*****JONES" },
+      { "PADDED": "*****SCOTT" }, { "PADDED": "******FORD" }, { "PADDED": "*****SMITH" }, { "PADDED": "*****ALLEN" },
+      { "PADDED": "******WARD" }, { "PADDED": "****MARTIN" }, { "PADDED": "****TURNER" }, { "PADDED": "*****ADAMS" },
+      { "PADDED": "*****JAMES" }, { "PADDED": "****MILLER" }
+  ]},
+  { "group": "String Functions", "question": "10. Reverse the employee names for all employees.", "query": "SELECT ENAME, \n       REVERSE(ENAME) AS Reversed \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "REVERSED": "GNIK" }, { "ENAME": "BLAKE", "REVERSED": "EKALB" }, { "ENAME": "SMITH", "REVERSED": "HTIMS" },
+      { "ENAME": "ALLEN", "REVERSED": "NELLA" }, { "ENAME": "WARD", "REVERSED": "DRAW" }, { "ENAME": "ADAMS", "REVERSED": "SMADA" },
+      { "ENAME": "JAMES", "REVERSED": "SEMAJ" }, { "ENAME": "MILLER", "REVERSED": "RELLIM" }, { "ENAME": "FORD", "REVERSED": "DROF" },
+      { "ENAME": "SCOTT", "REVERSED": "TTOCS" }, { "ENAME": "JONES", "REVERSED": "SENOJ" }, { "ENAME": "CLARK", "REVERSED": "KRALC" },
+      { "ENAME": "TURNER", "REVERSED": "RENRUT" }, { "ENAME": "MARTIN", "REVERSED": "NITRAM" }
+  ]},
+  { "group": "Date Functions", "question": "11. Display employee name, hire date, and today's date for all.", "query": "SELECT ENAME, \n       HIREDATE, \n       SYSDATE \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "HIREDATE": "17-NOV-81", "SYSDATE": "10-APR-26" }, { "ENAME": "BLAKE", "HIREDATE": "01-MAY-81", "SYSDATE": "10-APR-26" },
+      { "ENAME": "CLARK", "HIREDATE": "09-JUN-81", "SYSDATE": "10-APR-26" }, { "ENAME": "JONES", "HIREDATE": "02-APR-81", "SYSDATE": "10-APR-26" },
+      { "ENAME": "SCOTT", "HIREDATE": "19-APR-87", "SYSDATE": "10-APR-26" }, { "ENAME": "FORD", "HIREDATE": "03-DEC-81", "SYSDATE": "10-APR-26" },
+      { "ENAME": "SMITH", "HIREDATE": "17-DEC-80", "SYSDATE": "10-APR-26" }, { "ENAME": "ALLEN", "HIREDATE": "20-FEB-81", "SYSDATE": "10-APR-26" },
+      { "ENAME": "WARD", "HIREDATE": "22-FEB-81", "SYSDATE": "10-APR-26" }, { "ENAME": "MARTIN", "HIREDATE": "28-SEP-81", "SYSDATE": "10-APR-26" },
+      { "ENAME": "TURNER", "HIREDATE": "08-SEP-81", "SYSDATE": "10-APR-26" }, { "ENAME": "ADAMS", "HIREDATE": "23-MAY-87", "SYSDATE": "10-APR-26" },
+      { "ENAME": "JAMES", "HIREDATE": "03-DEC-81", "SYSDATE": "10-APR-26" }, { "ENAME": "MILLER", "HIREDATE": "23-JAN-82", "SYSDATE": "10-APR-26" }
+  ]},
+  { "group": "Date Functions", "question": "12. Calculate total days worked till today for all employees.", "query": "SELECT ENAME, \n       ROUND(SYSDATE - HIREDATE) AS Days_Worked \nFROM EMP;", "output_table": [
+      { "ENAME": "SMITH", "DAYS_WORKED": 16550 }, { "ENAME": "KING", "DAYS_WORKED": 16215 },
+      { "ENAME": "ALLEN", "DAYS_WORKED": 16485 }, { "ENAME": "WARD", "DAYS_WORKED": 16483 },
+      { "ENAME": "JONES", "DAYS_WORKED": 16444 }, { "ENAME": "BLAKE", "DAYS_WORKED": 16415 },
+      { "ENAME": "CLARK", "DAYS_WORKED": 16376 }, { "ENAME": "TURNER", "DAYS_WORKED": 16285 },
+      { "ENAME": "MARTIN", "DAYS_WORKED": 16265 }, { "ENAME": "FORD", "DAYS_WORKED": 16199 },
+      { "ENAME": "JAMES", "DAYS_WORKED": 16199 }, { "ENAME": "MILLER", "DAYS_WORKED": 16148 },
+      { "ENAME": "SCOTT", "DAYS_WORKED": 14236 }, { "ENAME": "ADAMS", "DAYS_WORKED": 14202 }
+  ]},
+  { "group": "Date Functions", "question": "13. Display hire date in Day, DD Month YYYY format for all.", "query": "SELECT ENAME, \n       TO_CHAR(HIREDATE, 'Day, DD Month YYYY') AS Full_Date \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "FULL_DATE": "Tuesday, 17 November 1981" }, { "ENAME": "SMITH", "FULL_DATE": "Wednesday, 17 December 1980" },
+      { "ENAME": "ALLEN", "FULL_DATE": "Friday, 20 February 1981" }, { "ENAME": "WARD", "FULL_DATE": "Sunday, 22 February 1981" }
+  ]},
+  { "group": "Date Functions", "question": "14. Find the last day of the month of hiring for all employees.", "query": "SELECT ENAME, \n       LAST_DAY(HIREDATE) AS End_Of_Month \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "END_Of_MONTH": "30-NOV-81" }, { "ENAME": "BLAKE", "END_Of_MONTH": "31-MAY-81" },
+      { "ENAME": "SMITH", "END_Of_MONTH": "31-DEC-80" }, { "ENAME": "MILLER", "END_Of_MONTH": "31-JAN-82" }
+  ]},
+  { "group": "Date Functions", "question": "15. Calculate total months of experience for all employees.", "query": "SELECT ENAME, \n       ROUND(MONTHS_BETWEEN(SYSDATE, HIREDATE)) AS Months_Exp \nFROM EMP;", "output_table": [
+      { "ENAME": "SMITH", "MONTHS_Exp": 544 }, { "ENAME": "KING", "MONTHS_Exp": 533 },
+      { "ENAME": "ALLEN", "MONTHS_Exp": 542 }, { "ENAME": "ADAMS", "MONTHS_Exp": 467 }
+  ]},
+  { "group": "Date Functions", "question": "16. Add 6 months to the hire date for all employees.", "query": "SELECT ENAME, \n       ADD_MONTHS(HIREDATE, 6) AS After_6_Mos \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "AFTER_6_MOS": "17-MAY-82" }, { "ENAME": "ALLEN", "AFTER_6_MOS": "20-AUG-81" },
+      { "ENAME": "WARD", "AFTER_6_MOS": "22-AUG-81" }, { "ENAME": "SMITH", "AFTER_6_MOS": "17-JUN-81" }
+  ]},
+  { "group": "Date Functions", "question": "17. Find the next Monday after hire date for all employees.", "query": "SELECT ENAME, \n       NEXT_DAY(HIREDATE, 'MONDAY') AS Next_Mon \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "NEXT_MON": "23-NOV-81" }, { "ENAME": "SMITH", "NEXT_MON": "22-DEC-80" }
+  ]},
+  { "group": "Numeric Functions", "question": "18. Round salary to nearest thousand for all employees.", "query": "SELECT ENAME, \n       SAL, \n       ROUND(SAL, -3) AS Rounded_Sal \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "SAL": 5000, "ROUNDED_SAL": 5000 }, { "ENAME": "BLAKE", "SAL": 2850, "ROUNDED_SAL": 3000 },
+      { "ENAME": "CLARK", "SAL": 2450, "ROUNDED_SAL": 2000 }, { "ENAME": "JONES", "SAL": 2975, "ROUNDED_SAL": 3000 },
+      { "ENAME": "SCOTT", "SAL": 3000, "ROUNDED_SAL": 3000 }, { "ENAME": "FORD", "SAL": 3000, "ROUNDED_SAL": 3000 },
+      { "ENAME": "SMITH", "SAL": 800, "ROUNDED_SAL": 1000 }, { "ENAME": "ALLEN", "SAL": 1600, "ROUNDED_SAL": 2000 },
+      { "ENAME": "WARD", "SAL": 1250, "ROUNDED_SAL": 1000 }, { "ENAME": "MARTIN", "SAL": 1250, "ROUNDED_SAL": 1000 },
+      { "ENAME": "TURNER", "SAL": 1500, "ROUNDED_SAL": 2000 }, { "ENAME": "ADAMS", "SAL": 1100, "ROUNDED_SAL": 1000 },
+      { "ENAME": "JAMES", "SAL": 950, "ROUNDED_SAL": 1000 }, { "ENAME": "MILLER", "SAL": 1300, "ROUNDED_SAL": 1000 }
+  ]},
+  { "group": "Numeric Functions", "question": "19. Find the square root of salary for all employees.", "query": "SELECT ENAME, \n       ROUND(SQRT(SAL), 2) AS Sal_Sqrt \nFROM EMP;", "output_table": [
+      { "ENAME": "KING", "SAL_SQRT": 70.71 }, { "ENAME": "SMITH", "SAL_SQRT": 28.28 },
+      { "ENAME": "ALLEN", "SAL_SQRT": 40.0 }, { "ENAME": "BLAKE", "SAL_SQRT": 53.39 }
+  ]},
+  { "group": "Numeric Functions", "question": "20. Find remainder when salary is divided by 1000 for all.", "query": "SELECT ENAME, \n       MOD(SAL, 1000) AS Remainder \nFROM EMP;", "output_table": [
+      { "ENAME": "JONES", "REMAINDER": 975 }, { "ENAME": "WARD", "REMAINDER": 250 },
+      { "ENAME": "MARTIN", "REMAINDER": 250 }, { "ENAME": "TURNER", "REMAINDER": 500 }
+  ]}
+]

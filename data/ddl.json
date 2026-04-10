@@ -1,0 +1,44 @@
+[
+  { "group": "Table Creation (1-10)", "question": "1. Create STUDENT table with basic columns.", "query": "\nCREATE TABLE STUDENT (\n  SID NUMBER, \n  SNAME VARCHAR2(30), \n  AGE NUMBER, \n  COURSE VARCHAR2(20)\n);", "output_table": [{ "RESULT": "Table STUDENT created." }] },
+  { "group": "Table Creation (1-10)", "question": "2. Create EMPLOYEE table with precision salary.", "query": "CREATE TABLE EMPLOYEE (\n  EID NUMBER, \n  ENAME VARCHAR2(40), \n  SALARY NUMBER(8,2), \n  DEPTNO NUMBER\n);", "output_table": [{ "RESULT": "Table EMPLOYEE created." }] },
+  { "group": "Table Creation (1-10)", "question": "3. Create DEPARTMENT table.", "query": "CREATE TABLE DEPARTMENT (\n  DEPTNO NUMBER, \n  DNAME VARCHAR2(30), \n  LOCATION VARCHAR2(30)\n);", "output_table": [{ "RESULT": "Table DEPARTMENT created." }] },
+  { "group": "Table Creation (1-10)", "question": "4. Create BOOK table.", "query": "CREATE TABLE BOOK (\n  BOOK_ID NUMBER, \n  TITLE VARCHAR2(50), \n  AUTHOR VARCHAR2(40), \n  PRICE NUMBER\n);", "output_table": [{ "RESULT": "Table BOOK created." }] },
+  { "group": "Table Creation (1-10)", "question": "5. Create COURSE table.", "query": "CREATE TABLE COURSE (\n  CID NUMBER, \n  CNAME VARCHAR2(40), \n  DURATION NUMBER\n);", "output_table": [{ "RESULT": "Table COURSE created." }] },
+  { "group": "Table Creation (1-10)", "question": "6. Create PROJECT table.", "query": "CREATE TABLE PROJECT (\n  PID NUMBER, \n  PNAME VARCHAR2(50), \n  START_DATE DATE, \n  END_DATE DATE\n);", "output_table": [{ "RESULT": "Table PROJECT created." }] },
+  { "group": "Table Creation (1-10)", "question": "7. Create CUSTOMER table.", "query": "CREATE TABLE CUSTOMER (\n  CID NUMBER, \n  CNAME VARCHAR2(40), \n  CITY VARCHAR2(30), \n  PHONE NUMBER\n);", "output_table": [{ "RESULT": "Table CUSTOMER created." }] },
+  { "group": "Table Creation (1-10)", "question": "8. Create SALES table.", "query": "CREATE TABLE SALES (\n  SALE_ID NUMBER, \n  PRODUCT_NAME VARCHAR2(50), \n  QUANTITY NUMBER, \n  PRICE NUMBER\n);", "output_table": [{ "RESULT": "Table SALES created." }] },
+  { "group": "Table Creation (1-10)", "question": "9. Create Structure Only (EMP_COPY) using CTAS.", "query": "CREATE TABLE EMP_COPY AS SELECT * FROM EMP WHERE 1=0;", "output_table": [{ "RESULT": "Table EMP_COPY created." }] },
+  { "group": "Table Creation (1-10)", "question": "10. Create with Data (EMP_BACKUP) using CTAS.", "query": "CREATE TABLE EMP_BACKUP AS SELECT * FROM EMP;", "output_table": [{ "RESULT": "Table EMP_BACKUP created." }] },
+
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "11. Add EMAIL column to STUDENT table.", "query": "ALTER TABLE STUDENT ADD (EMAIL VARCHAR2(50));", "output_table": [{ "RESULT": "Table STUDENT altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "12. Add PHONE column to EMPLOYEE table.", "query": "ALTER TABLE EMPLOYEE ADD (PHONE NUMBER);", "output_table": [{ "RESULT": "Table EMPLOYEE altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "13. Modify SNAME column size to 50.", "query": "ALTER TABLE STUDENT MODIFY (SNAME VARCHAR2(50));", "output_table": [{ "RESULT": "Table STUDENT altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "14. Modify SALARY precision to (10,2).", "query": "ALTER TABLE EMPLOYEE MODIFY (SALARY NUMBER(10,2));", "output_table": [{ "RESULT": "Table EMPLOYEE altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "15. Add multiple columns to CUSTOMER.", "query": "ALTER TABLE CUSTOMER ADD (CITY_NEW VARCHAR2(30), PINCODE NUMBER);", "output_table": [{ "RESULT": "Table CUSTOMER altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "16. Rename SNAME column to STUDENT_NAME.", "query": "ALTER TABLE STUDENT RENAME COLUMN SNAME TO STUDENT_NAME;", "output_table": [{ "RESULT": "Table STUDENT altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "17. Drop AGE column from STUDENT table.", "query": "ALTER TABLE STUDENT DROP COLUMN AGE;", "output_table": [{ "RESULT": "Table STUDENT altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "18. Add NOT NULL constraint to SALARY.", "query": "ALTER TABLE EMPLOYEE MODIFY (SALARY NOT NULL);", "output_table": [{ "RESULT": "Table EMPLOYEE altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "19. Increase TITLE size in BOOK table.", "query": "ALTER TABLE BOOK MODIFY (TITLE VARCHAR2(100));", "output_table": [{ "RESULT": "Table BOOK altered." }] },
+  { "group": "Alter: Adding & Modifying (11-20)", "question": "20. Add MANAGER_ID column to EMPLOYEE.", "query": "ALTER TABLE EMPLOYEE ADD (MANAGER_ID NUMBER);", "output_table": [{ "RESULT": "Table EMPLOYEE altered." }] },
+
+  { "group": "Renaming Tables (21-25)", "question": "21. Rename STUDENT to STUDENTS.", "query": "RENAME STUDENT TO STUDENTS;", "output_table": [{ "RESULT": "Table renamed." }] },
+  { "group": "Renaming Tables (21-25)", "question": "22. Rename EMPLOYEE to EMP_MASTER.", "query": "RENAME EMPLOYEE TO EMP_MASTER;", "output_table": [{ "RESULT": "Table renamed." }] },
+  { "group": "Renaming Tables (21-25)", "question": "23. Rename CUSTOMER to CLIENT.", "query": "RENAME CUSTOMER TO CLIENT;", "output_table": [{ "RESULT": "Table renamed." }] },
+  { "group": "Renaming Tables (21-25)", "question": "24. Rename BOOK to BOOK_DETAILS.", "query": "RENAME BOOK TO BOOK_DETAILS;", "output_table": [{ "RESULT": "Table renamed." }] },
+  { "group": "Renaming Tables (21-25)", "question": "25. Rename PROJECT to PROJECT_INFO.", "query": "RENAME PROJECT TO PROJECT_INFO;", "output_table": [{ "RESULT": "Table renamed." }] },
+
+  { "group": "Truncate & Drop (26-30)", "question": "26. Truncate STUDENTS table.", "query": "TRUNCATE TABLE STUDENTS;", "output_table": [{ "RESULT": "Table STUDENTS truncated." }] },
+  { "group": "Truncate & Drop (26-30)", "question": "27. Truncate EMP_MASTER table.", "query": "TRUNCATE TABLE EMP_MASTER;", "output_table": [{ "RESULT": "Table EMP_MASTER truncated." }] },
+  { "group": "Truncate & Drop (26-30)", "question": "28. Drop SALES table.", "query": "DROP TABLE SALES;", "output_table": [{ "RESULT": "Table SALES dropped." }] },
+  { "group": "Truncate & Drop (26-30)", "question": "29. Drop COURSE table.", "query": "DROP TABLE COURSE;", "output_table": [{ "RESULT": "Table COURSE dropped." }] },
+  { "group": "Truncate & Drop (26-30)", "question": "30. Drop PROJECT_INFO permanently using PURGE.", "query": "DROP TABLE PROJECT_INFO PURGE;", "output_table": [{ "RESULT": "Table PROJECT_INFO dropped." }] },
+
+  { "group": "Complex Tasks (31-41)", "question": "31. Create TRAINING table.", "query": "CREATE TABLE TRAINING (TID NUMBER, TNAME VARCHAR2(30), DURATION NUMBER);", "output_table": [{ "RESULT": "Table TRAINING created." }] },
+  { "group": "Complex Tasks (31-41)", "question": "32. Add TRAINER_NAME to Training.", "query": "ALTER TABLE TRAINING ADD (TRAINER_NAME VARCHAR2(40));", "output_table": [{ "RESULT": "Table TRAINING altered." }] },
+  { "group": "Complex Tasks (31-41)", "question": "33. Rename & Truncate Training.", "query": "RENAME TRAINING TO TRAINING_PROGRAM;\nTRUNCATE TABLE TRAINING_PROGRAM;", "output_table": [{ "ACTION": "RENAME", "STATUS": "DONE" }, { "ACTION": "TRUNCATE", "STATUS": "DONE" }] },
+  { "group": "Complex Tasks (31-41)", "question": "34. Create EMP_PROJECT & Modify.", "query": "CREATE TABLE EMP_PROJECT (EMP_ID NUMBER, ROLE VARCHAR2(30));\nALTER TABLE EMP_PROJECT MODIFY (ROLE VARCHAR2(50)) ADD (STATUS VARCHAR2(20));", "output_table": [{ "RESULT": "Table created and altered." }] },
+  { "group": "Complex Tasks (31-41)", "question": "35. Create PRODUCT & Rename Column.", "query": "CREATE TABLE PRODUCT (PID NUMBER, PNAME VARCHAR2(50), PRICE NUMBER);\nALTER TABLE PRODUCT RENAME COLUMN PNAME TO PRODUCT_NAME;", "output_table": [{ "RESULT": "Table created and column renamed." }] },
+  { "group": "Complex Tasks (31-41)", "question": "36. Modify PRODUCT Datatype.", "query": "ALTER TABLE PRODUCT MODIFY (PRICE NUMBER(10,2));", "output_table": [{ "RESULT": "Table PRODUCT altered." }] },
+  { "group": "Complex Tasks (31-41)", "question": "37. Create ORDERS & Drop Column.", "query": "CREATE TABLE ORDERS (ORDER_ID NUMBER, TOTAL_AMOUNT NUMBER);\nALTER TABLE ORDERS DROP COLUMN TOTAL_AMOUNT;", "output_table": [{ "RESULT": "Table created and column dropped." }] }
+ 
+]

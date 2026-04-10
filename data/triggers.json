@@ -1,0 +1,106 @@
+[
+  {
+    "question": "1. Write a trigger to display a message whenever a record is inserted into the EMP table.",
+    "query": "CREATE OR REPLACE TRIGGER my_trig1\nAFTER INSERT ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Data Inserted');\nEND;\n\nINSERT INTO EMP (EMPNO, ENAME, DEPTNO) VALUES (1111, 'TEST', 10);",
+    "output_table": [
+      { "Output": "Trigger MY_TRIG1 compiled" },
+      { "Execution": "Data Inserted" }
+    ]
+  },
+  {
+    "question": "2. Write a trigger that fires specifically before inserting data into the EMP table.",
+    "query": "CREATE OR REPLACE TRIGGER my_trig2\nBEFORE INSERT ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Starting Insertion');\nEND;\n\nINSERT INTO EMP (EMPNO, ENAME) VALUES (2222, 'DEMO');",
+    "output_table": [
+      { "Output": "Trigger MY_TRIG2 compiled" },
+      { "Execution": "Starting Insertion" }
+    ]
+  },
+  {
+    "question": "3. Write a trigger that fires specifically after deleting a record from the EMP table.",
+    "query": "CREATE OR REPLACE TRIGGER my_trig3\nAFTER DELETE ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Data Deleted');\nEND;\n\nDELETE FROM EMP WHERE EMPNO = 1111;",
+    "output_table": [
+      { "Output": "Trigger MY_TRIG3 compiled" },
+      { "Execution": "Data Deleted" }
+    ]
+  },
+  {
+    "question": "4. Write a trigger to prevent any deletion from the EMP table (Restriction logic).",
+    "query": "CREATE OR REPLACE TRIGGER stop_del\nBEFORE DELETE ON EMP\nBEGIN\n  RAISE_APPLICATION_ERROR(-20001, 'You cannot delete rows');\nEND;\n\nDELETE FROM EMP WHERE EMPNO = 7839;",
+    "output_table": [
+      { "Output": "Trigger STOP_DEL compiled" },
+      { "Error": "ORA-20001: You cannot delete rows" }
+    ]
+  },
+  {
+    "question": "5. Write a trigger to display a message whenever an employee's salary is updated.",
+    "query": "CREATE OR REPLACE TRIGGER check_sal\nAFTER UPDATE OF SAL ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Salary Changed');\nEND;\n\nUPDATE EMP SET SAL = 6000 WHERE ENAME = 'KING';",
+    "output_table": [
+      { "Output": "Trigger CHECK_SAL compiled" },
+      { "Execution": "Salary Changed" }
+    ]
+  },
+  {
+    "question": "6. Write a row-level trigger to display the old and new salary values when a salary is updated.",
+    "query": "CREATE OR REPLACE TRIGGER show_vals\nBEFORE UPDATE OF SAL ON EMP\nFOR EACH ROW\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Old: ' || :OLD.SAL || ' New: ' || :NEW.SAL);\nEND;\n\nUPDATE EMP SET SAL = 3500 WHERE ENAME = 'SCOTT';",
+    "output_table": [
+      { "Output": "Trigger SHOW_VALS compiled" },
+      { "Execution": "Old: 3000 New: 3500" }
+    ]
+  },
+  {
+    "question": "7. Write a trigger to restrict a salary update if the new salary is less than the old salary.",
+    "query": "CREATE OR REPLACE TRIGGER sal_limit\nBEFORE UPDATE OF SAL ON EMP\nFOR EACH ROW\nBEGIN\n  IF :NEW.SAL < :OLD.SAL THEN\n    RAISE_APPLICATION_ERROR(-20002, 'Salary cannot be decreased');\n  END IF;\nEND;\n\nUPDATE EMP SET SAL = 500 WHERE ENAME = 'KING';",
+    "output_table": [
+      { "Output": "Trigger SAL_LIMIT compiled" },
+      { "Error": "ORA-20002: Salary cannot be decreased" }
+    ]
+  },
+  {
+    "question": "8. Write a trigger to automatically set the HIREDATE to current date while inserting a record.",
+    "query": "CREATE OR REPLACE TRIGGER set_date\nBEFORE INSERT ON EMP\nFOR EACH ROW\nBEGIN\n  :NEW.HIREDATE := SYSDATE;\nEND;\n\nINSERT INTO EMP (EMPNO, ENAME) VALUES (3333, 'NEWUSER');",
+    "output_table": [
+      { "Output": "Trigger SET_DATE compiled" },
+      { "Status": "Hiredate auto-set by trigger" }
+    ]
+  },
+  {
+    "question": "9. Write a trigger to increase the salary value by 5% within the :NEW variable before commit.",
+    "query": "CREATE OR REPLACE TRIGGER auto_hike\nBEFORE INSERT ON EMP\nFOR EACH ROW\nBEGIN\n  :NEW.SAL := :NEW.SAL * 1.05;\nEND;\n\nINSERT INTO EMP (EMPNO, ENAME, SAL) VALUES (4444, 'BONUS', 1000);",
+    "output_table": [
+      { "Output": "Trigger AUTO_HIKE compiled" },
+      { "Status": "Salary auto-increased to 1050" }
+    ]
+  },
+  {
+    "question": "10. Write a trigger to copy deleted records into an audit table.",
+    "query": "CREATE OR REPLACE TRIGGER archive_it\nAFTER DELETE ON EMP\nFOR EACH ROW\nBEGIN\n  INSERT INTO EMP_BACKUP (EMPNO, ENAME) VALUES (:OLD.EMPNO, :OLD.ENAME);\nEND;\n\nDELETE FROM EMP WHERE EMPNO = 4444;",
+    "output_table": [
+      { "Output": "Trigger ARCHIVE_IT compiled" },
+      { "Status": "Row moved to EMP_BACKUP" }
+    ]
+  },
+  {
+    "question": "11. Write a statement-level trigger to display a message when any INSERT occurs.",
+    "query": "CREATE OR REPLACE TRIGGER ins_msg\nAFTER INSERT ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Insertion Done');\nEND;\n\nINSERT INTO EMP (EMPNO, ENAME) VALUES (5555, 'STMT');",
+    "output_table": [
+      { "Output": "Trigger INS_MSG compiled" },
+      { "Execution": "Insertion Done" }
+    ]
+  },
+  {
+    "question": "12. Write a statement-level trigger to log update operations.",
+    "query": "CREATE OR REPLACE TRIGGER upd_msg\nAFTER UPDATE ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('Update Statement Finished');\nEND;\n\nUPDATE EMP SET DEPTNO = 20 WHERE DEPTNO = 10;",
+    "output_table": [
+      { "Output": "Trigger UPD_MSG compiled" },
+      { "Execution": "Update Statement Finished" }
+    ]
+  },
+  {
+    "question": "13. Write a trigger that fires exactly once for a DELETE statement.",
+    "query": "CREATE OR REPLACE TRIGGER del_msg\nAFTER DELETE ON EMP\nBEGIN\n  DBMS_OUTPUT.PUT_LINE('One Delete Command Run');\nEND;\n\nDELETE FROM EMP WHERE DEPTNO = 30;",
+    "output_table": [
+      { "Output": "Trigger DEL_MSG compiled" },
+      { "Execution": "One Delete Command Run" }
+    ]
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "question": "1. Create a view to display employee name, salary, and department number from the EMP table.",
+    "query": "CREATE OR REPLACE VIEW emp_basic_view AS \nSELECT ENAME, SAL, DEPTNO FROM EMP;\n\nSELECT * FROM emp_basic_view;",
+    "output_table": [
+      { "Output": "View EMP_BASIC_VIEW created." },
+      { "ENAME": "SMITH", "SAL": 800, "DEPTNO": 20 },
+      { "ENAME": "ALLEN", "SAL": 1600, "DEPTNO": 30 },
+      { "ENAME": "WARD", "SAL": 1250, "DEPTNO": 30 },
+      { "ENAME": "JONES", "SAL": 2975, "DEPTNO": 20 },
+      { "ENAME": "MARTIN", "SAL": 1250, "DEPTNO": 30 },
+      { "ENAME": "BLAKE", "SAL": 2850, "DEPTNO": 30 },
+      { "ENAME": "CLARK", "SAL": 2450, "DEPTNO": 10 },
+      { "ENAME": "SCOTT", "SAL": 3000, "DEPTNO": 20 },
+      { "ENAME": "KING", "SAL": 5000, "DEPTNO": 10 },
+      { "ENAME": "TURNER", "SAL": 1500, "DEPTNO": 30 },
+      { "ENAME": "ADAMS", "SAL": 1100, "DEPTNO": 20 },
+      { "ENAME": "JAMES", "SAL": 950, "DEPTNO": 30 },
+      { "ENAME": "FORD", "SAL": 3000, "DEPTNO": 20 },
+      { "ENAME": "MILLER", "SAL": 1300, "DEPTNO": 10 }
+    ]
+  },
+  {
+    "question": "2. Create a view to display employee name and department name by joining EMP and DEPT tables.",
+    "query": "CREATE OR REPLACE VIEW emp_dept_name_view AS \nSELECT E.ENAME, D.DNAME \nFROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO;\n\nSELECT * FROM emp_dept_name_view;",
+    "output_table": [
+      { "Output": "View EMP_DEPT_NAME_VIEW created." },
+      { "ENAME": "SMITH", "DNAME": "RESEARCH" },
+      { "ENAME": "ALLEN", "DNAME": "SALES" },
+      { "ENAME": "WARD", "DNAME": "SALES" },
+      { "ENAME": "JONES", "DNAME": "RESEARCH" },
+      { "ENAME": "MARTIN", "DNAME": "SALES" },
+      { "ENAME": "BLAKE", "DNAME": "SALES" },
+      { "ENAME": "CLARK", "DNAME": "ACCOUNTING" },
+      { "ENAME": "SCOTT", "DNAME": "RESEARCH" },
+      { "ENAME": "KING", "DNAME": "ACCOUNTING" },
+      { "ENAME": "TURNER", "DNAME": "SALES" },
+      { "ENAME": "ADAMS", "DNAME": "RESEARCH" },
+      { "ENAME": "JAMES", "DNAME": "SALES" },
+      { "ENAME": "FORD", "DNAME": "RESEARCH" },
+      { "ENAME": "MILLER", "DNAME": "ACCOUNTING" }
+    ]
+  },
+  {
+    "question": "3. Create a view to display employees working in department 10.",
+    "query": "CREATE OR REPLACE VIEW dept10_view AS \nSELECT * FROM EMP WHERE DEPTNO = 10;\n\nSELECT * FROM dept10_view;",
+    "output_table": [
+      { "Output": "View DEPT10_VIEW created." },
+      { "EMPNO": 7782, "ENAME": "CLARK", "JOB": "MANAGER", "MGR": 7839, "HIREDATE": "09-JUN-81", "SAL": 2450, "COMM": null, "DEPTNO": 10 },
+      { "EMPNO": 7839, "ENAME": "KING", "JOB": "PRESIDENT", "MGR": null, "HIREDATE": "17-NOV-81", "SAL": 5000, "COMM": null, "DEPTNO": 10 },
+      { "EMPNO": 7934, "ENAME": "MILLER", "JOB": "CLERK", "MGR": 7782, "HIREDATE": "23-JAN-82", "SAL": 1300, "COMM": null, "DEPTNO": 10 }
+    ]
+  },
+  {
+    "question": "4. Create a view to display employee name, job, and annual salary (SAL * 12).",
+    "query": "CREATE OR REPLACE VIEW annual_sal_view AS \nSELECT ENAME, JOB, SAL * 12 AS ANNUAL_SALARY FROM EMP;\n\nSELECT * FROM annual_sal_view;",
+    "output_table": [
+      { "Output": "View ANNUAL_SAL_VIEW created." },
+      { "ENAME": "KING", "JOB": "PRESIDENT", "ANNUAL_SALARY": 60000 },
+      { "ENAME": "BLAKE", "JOB": "MANAGER", "ANNUAL_SALARY": 34200 },
+      { "ENAME": "SCOTT", "JOB": "ANALYST", "ANNUAL_SALARY": 36000 },
+      { "ENAME": "SMITH", "JOB": "CLERK", "ANNUAL_SALARY": 9600 }
+    ]
+  },
+  {
+    "question": "5. Create a view to display department name and location from the DEPT table.",
+    "query": "CREATE OR REPLACE VIEW dept_loc_view AS \nSELECT DNAME, LOC FROM DEPT;\n\nSELECT * FROM dept_loc_view;",
+    "output_table": [
+      { "Output": "View DEPT_LOC_VIEW created." },
+      { "DNAME": "ACCOUNTING", "LOC": "NEW YORK" },
+      { "DNAME": "RESEARCH", "LOC": "DALLAS" },
+      { "DNAME": "SALES", "LOC": "CHICAGO" },
+      { "DNAME": "OPERATIONS", "LOC": "BOSTON" }
+    ]
+  },
+  {
+    "question": "6. Create a view to display employee name, department name, and location.",
+    "query": "CREATE OR REPLACE VIEW emp_full_dept_view AS \nSELECT E.ENAME, D.DNAME, D.LOC \nFROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO;\n\nSELECT * FROM emp_full_dept_view;",
+    "output_table": [
+      { "Output": "View EMP_FULL_DEPT_VIEW created." },
+      { "ENAME": "KING", "DNAME": "ACCOUNTING", "LOC": "NEW YORK" },
+      { "ENAME": "SMITH", "DNAME": "RESEARCH", "LOC": "DALLAS" },
+      { "ENAME": "ALLEN", "DNAME": "SALES", "LOC": "CHICAGO" }
+    ]
+  },
+  {
+    "question": "7. Create a view to display employees earning more than 3000.",
+    "query": "CREATE OR REPLACE VIEW high_sal_view AS \nSELECT * FROM EMP WHERE SAL > 3000;\n\nSELECT * FROM high_sal_view;",
+    "output_table": [
+      { "Output": "View HIGH_SAL_VIEW created." },
+      { "EMPNO": 7839, "ENAME": "KING", "JOB": "PRESIDENT", "MGR": null, "HIREDATE": "17-NOV-81", "SAL": 5000, "COMM": null, "DEPTNO": 10 }
+    ]
+  },
+  {
+    "question": "8. Create a view to display department-wise total salary using the EMP table.",
+    "query": "CREATE OR REPLACE VIEW dept_total_sal_view AS \nSELECT DEPTNO, SUM(SAL) AS TOTAL_SALARY \nFROM EMP GROUP BY DEPTNO;\n\nSELECT * FROM dept_total_sal_view;",
+    "output_table": [
+      { "Output": "View DEPT_TOTAL_SAL_VIEW created." },
+      { "DEPTNO": 10, "TOTAL_SALARY": 8750 },
+      { "DEPTNO": 20, "TOTAL_SALARY": 10875 },
+      { "DEPTNO": 30, "TOTAL_SALARY": 9400 }
+    ]
+  },
+  {
+    "question": "9. Create a view to display only managers (JOB = 'MANAGER').",
+    "query": "CREATE OR REPLACE VIEW managers_view AS \nSELECT * FROM EMP WHERE JOB = 'MANAGER';\n\nSELECT * FROM managers_view;",
+    "output_table": [
+      { "Output": "View MANAGERS_VIEW created." },
+      { "EMPNO": 7698, "ENAME": "BLAKE", "JOB": "MANAGER", "MGR": 7839, "DEPTNO": 30 },
+      { "EMPNO": 7782, "ENAME": "CLARK", "JOB": "MANAGER", "MGR": 7839, "DEPTNO": 10 },
+      { "EMPNO": 7566, "ENAME": "JONES", "JOB": "MANAGER", "MGR": 7839, "DEPTNO": 20 }
+    ]
+  },
+  {
+    "question": "10. Create a view with column aliases for employee name and salary.",
+    "query": "CREATE OR REPLACE VIEW emp_alias_view AS \nSELECT ENAME AS Employee_Name, SAL AS Monthly_Salary FROM EMP;\n\nSELECT * FROM emp_alias_view;",
+    "output_table": [
+      { "Output": "View EMP_ALIAS_VIEW created." },
+      { "EMPLOYEE_NAME": "SMITH", "MONTHLY_SALARY": 800 },
+      { "EMPLOYEE_NAME": "ALLEN", "MONTHLY_SALARY": 1600 },
+      { "EMPLOYEE_NAME": "KING", "MONTHLY_SALARY": 5000 }
+    ]
+  }
+]
